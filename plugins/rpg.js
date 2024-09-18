@@ -61,9 +61,9 @@ isForwarded: false,
 { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 //conn.sendButton(m.chat, lenguaje.smsReg7(name, user, age, time, date, sender, sn, prefix, rtotalreg), 'Seleccióna tu idioma', null, [['𝐄𝐒𝐏𝐀𝐍̃𝐎𝐋', `.idioma 1`], ['𝐈𝐍𝐆𝐋𝐄𝐒', `.idioma 2`], ['𝐀𝐑𝐀𝐁𝐄', `.idioma 3`], ['𝐈𝐍𝐃𝐎𝐍𝐄𝐒𝐈𝐀', `.idioma 4`], ['𝐏𝐎𝐑𝐓𝐔𝐆𝐔𝐄𝐒', `.idioma 5`], ['𝐑𝐔𝐒𝐎', `.idioma 6`]], null, [['𝐂𝐚𝐧𝐚𝐥', nna]], {quoted: fkontak})
 await delay(2 * 2000)
-conn.sendMessage(m.chat, { text: sn, contextInfo:{forwardingScore: 9999999, isForwarded: false, }}, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+m.reply(sn) 
 await delay(2 * 2000)
-conn.sendMessage(m.chat, { text: lenguaje.smsReg8(), contextInfo:{forwardingScore: 9999999, isForwarded: false, }}, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+m.reply(lenguaje.smsReg8()) 
 }
 
 if (command == 'unreg') {

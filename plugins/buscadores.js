@@ -165,40 +165,32 @@ if (prefix == 'a' || prefix == 'A') return
 if (!text) return m.reply(`${lenguaje.lengua.ia} ${prefix + command} Recomienda un top 10 de películas de acción`) 
 try {
 conn.sendPresenceUpdate('composing', m.chat);
-let sistema1 = `Actuaras como un Bot de WhatsApp el cual fue creado por elrebelde21, tu seras NovaBot-MD`;
-async function getOpenAIChatCompletion(texto) {
-const openaiAPIKey = global.openai_key;
-let chgptdb = global.chatgpt.data.users[m.sender];
-chgptdb.push({ role: 'user', content: texto });
-const url = "https://api.openai.com/v1/chat/completions";
-const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${openaiAPIKey}` };
-const data = { "model": "gpt-3.5-turbo", "messages": [{ "role": "system", "content": sistema1 }, ...chgptdb, ]};
-const response = await fetch(url, {method: "POST", headers: headers, body: JSON.stringify(data)});
-const result = await response.json();
-const finalResponse = result.choices[0].message.content;
-return finalResponse;
-};
-let respuesta = await getOpenAIChatCompletion(text);
-if (respuesta == 'error' || respuesta == '' || !respuesta) return XD; // causar error undefined para usar otra api
-m.reply(`${respuesta}`.trim());
+async function luminsesi(q, username, logic) {
+try {
+const response = await axios.post("https://luminai.my.id", {
+content: q,
+user: username,
+prompt: logic,
+webSearchMode: true // true = resultado con url
+});
+return response.data.result;
+} catch (error) {
+console.error('Error al obtener:', error);
+}}
+
+let query = m.text;
+let username = `${m.pushName}`;
+let syms1 = await fetch('https://raw.githubusercontent.com/elrebelde21/LoliBot-MD/main/src/text-chatgpt.txt').then(v => v.text());
+
+let result = await luminsesi(query, username, syms1);
+ await m.reply(result)
 } catch {
 try {
-const botIA222 = await openaiii.createCompletion({model: 'text-davinci-003', prompt: text, temperature: 0.3, max_tokens: 4097, stop: ['Ai:', 'Human:'], top_p: 1, frequency_penalty: 0.2, presence_penalty: 0});
-if (botIA222.data.choices[0].text == 'error' || botIA222.data.choices[0].text == '' || !botIA222.data.choices[0].text) return XD; // causar error undefined para usar otra api
-m.reply(botIA222.data.choices[0].text.trim());
+let gpt = await fetch(`https://deliriusapi-official.vercel.app/ia/gptweb?text=${text}`) 
+let res = await gpt.json()
+await m.reply(res.gpt)
 } catch {
-try {
-const syms1 = `Actuaras como un Bot de WhatsApp el cual fue creado por elrebelde21, tu seras NovaBot-MD`
-const Empireapi1 = await fetch(`https://api.cafirexos.com/api/chatgpt?text=${text}&name=${m.name}&prompt=${syms1}`);
-const empireApijson1 = await Empireapi1.json();
-if (empireApijson1.resultado == 'error' || empireApijson1.resultado == '' || !empireApijson1.resultado) return XD; // causar error undefined para lanzar msg de error
-m.reply(`${empireApijson1.resultado}`.trim());
-} catch {
-try {
-let ia = await axios.get(`https://delirius-api-oficial.vercel.app/api/chatgpt?q=${text}`)
-await m.reply(ia.data.data)
-} catch {
-return m.reply(info.error)}}}}}
+}}}
 
 if (command == 'bard' || command == 'ia2') { 
 if (prefix == 'a' || prefix == 'A') return
@@ -216,14 +208,14 @@ console.log(e)
 if (command == 'gemini') { 
 if (!text) return m.reply(`${lenguaje.lengua.ia} ${prefix + command} Recomienda un top 10 de películas de acción`) 
 conn.sendPresenceUpdate('composing', m.chat);
-let gpt = await fetch(`https://delirius-api-oficial.vercel.app/api/gemini?query=${text}`)
+let gpt = await fetch(`https://deliriusapi-official.vercel.app/api/gemini?query=${text}`)
 let res = await gpt.json()
 await m.reply(res.message)}
 
 if (command == 'copilot' || command == 'bing') { 
 if (!text) return m.reply(`${lenguaje.lengua.ia} ${prefix + command} Recomienda un top 10 de películas de acción`) 
 conn.sendPresenceUpdate('composing', m.chat);
-let gpt = await fetch(`https://delirius-api-oficial.vercel.app/api/bingia?query=${text}`)
+let gpt = await fetch(`https://deliriusapi-official.vercel.app/api/bingia?query=${text}`)
 let res = await gpt.json()
 await m.reply(res.message)}
 
