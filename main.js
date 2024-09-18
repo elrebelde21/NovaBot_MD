@@ -128,9 +128,20 @@ for (let i of orangnya) {
 conn.groupParticipantsUpdate(m.chat, [i], "remove")}}  
 const time = moment(Number(msg.messageTimestamp + "000")).locale("es-mx").tz("America/Asuncion").format('MMMM Do YYYY, h:mm:ss a')   
   
+let canalId = ["120363160031023229@newsletter", "120363301598733462@newsletter"]
+let canalNombre = ["INFINITY-WA 💫", "CorinPlus-Host ☁️"]
+
+async function getRandomChannel() {
+let randomIndex = Math.floor(Math.random() * canalId.length)
+let id = canalId[randomIndex]
+let nombre = canalNombre[randomIndex]
+return { id, nombre }
+} 
+	
+let randomChannel = await getRandomChannel()
 /*const reply = (text) => {  
 m.reply(text)}*/
-function sendMessage(conn, chat, text, m) {conn.sendMessage(chat, { text: text, contextInfo: { forwardedNewsletterMessageInfo: {newsletterJid: '120363160031023229@newsletter', serverMessageId: '', newsletterName: 'INFINITY-WA 💫' }, forwardingScore: 9999999, isForwarded: true }}, {quoted: m, ephemeralExpiration: 24*60*60*1000, disappearingMessagesInChat: 24*60*60*1000 // Ajustado a milisegundos
+function sendMessage(conn, chat, text, m) {conn.sendMessage(chat, { text: text, contextInfo: { forwardedNewsletterMessageInfo: {newsletterJid: randomChannel.id, serverMessageId: '', newsletterName: randomChannel.nombre }, forwardingScore: 9999999, isForwarded: true }}, {quoted: m, ephemeralExpiration: 24*60*60*1000, disappearingMessagesInChat: 24*60*60*1000 // Ajustado a milisegundos
 })} 
 m.reply = (text) => {  
 sendMessage(conn, m.chat, text, m)}
