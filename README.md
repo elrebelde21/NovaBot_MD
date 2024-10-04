@@ -35,14 +35,21 @@
 
 ------------------ 
 
-### `🟢 𝙰𝙲𝚃𝙸𝚅𝙰𝚁 𝙴𝙽 𝚁𝙴𝙿𝙻𝙸𝚃`
+### ☁️ ACTIVAR NOVABOT-MD  24/7 ACTIVOS EN CORINPLUS-HOTS 
+<a href="https://dash.corinplus.com"><img src="https://qu.ax/ZycD.png" height="125px"></a>
+### Información del Host
 
-[![blog](https://img.shields.io/badge/Replit-Tutorial-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
-](https://youtu.be/SMjCcfuyWQE)
+- **Dashboard:** [`Aquí`](https://dash.corinplus.com)
+- **Panel:** [`Aquí`](https://panel.corinplus.com)
+- **Estado de servicios:** [`Aquí`](https://status.corinplus.com)
+- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
+- **Comunidad - WhatsApp** [`Aquí`](https://chat.whatsapp.com/HR3OLhsuZPqCMImzuHcuON)
+- **Support:** [`Bot exclusivo`](https://wa.me/message/FETBF7YBO37CG1)
+- **Contacto:** [`Gata Dios`](https://wa.me/message/B3KTM5XN2JMRD1)
+- **Contacto:** [`elrebelde21`](https://facebook.com/elrebelde21)
 
-[![Run on Repl.it](https://repl.it/badge/github/elrebelde21/NovaBot-MD)](https://repl.it/github/elrebelde21/NovaBot-MD) 
-
------------------- 
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - LoliBot-MD**</summary><img src="https://telegra.ph/file/7ddd30dd7d77354fb01fe.jpg"></details>
+----
 
 ## 𝙰𝙲𝚃𝙸𝚅𝙰 𝙴𝙻 𝚃𝙴𝚁𝙼𝚄𝚇
 👇 Pasos para instalar el bot via termux 👇
@@ -95,27 +102,7 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 ```
 
 ------------------ 
-### ☁️ CORINPLUS HOTS 
-<a href="https://dash.corinplus.com"><img src="https://qu.ax/ZycD.png" height="125px"></a>
-### Información del Host
-
-- **Dashboard:** [`Aquí`](https://dash.corinplus.com)
-- **Panel:** [`Aquí`](https://panel.corinplus.com)
-- **Estado de servicios:** [`Aquí`](https://status.corinplus.com)
-- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
-- **Comunidad - WhatsApp** [`Aquí`](https://chat.whatsapp.com/HR3OLhsuZPqCMImzuHcuON)
-- **Support:** [`Bot exclusivo`](https://wa.me/message/FETBF7YBO37CG1)
-- **Contacto:** [`Gata Dios`](https://wa.me/message/B3KTM5XN2JMRD1)
-- **Contacto:** [`elrebelde21`](https://facebook.com/elrebelde21)
-
-- [x] **Configuración** <details><summary>**Ajustes del Servidor - LoliBot-MD**</summary><img src="https://telegra.ph/file/7ddd30dd7d77354fb01fe.jpg"></details>
-----
-
 ###  🚀 VORTEXUSCLOUD HOST
-[![blog](https://img.shields.io/badge/Vortexuscloud-NovaBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
-](https://youtu.be/Xp2jRbG_v8o?si=nSAj4vUdz9tS31pO)
-> Activar NovaBot-MD 24/7 en Vortexuscloud Host
-
 <a href="https://vortexuscloud.com"><img src="https://telegra.ph/file/4bd3d8d14e5683073d4f3.jpg" height="125px"></a>
 ### vortexus cloud
 
@@ -129,26 +116,14 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - NovaBot-MD**</summary><img src="https://telegra.ph/file/5f7ea409a01756d76568f.jpg"></details>
 
 ------------------ 
+### `🟢 𝙰𝙲𝚃𝙸𝚅𝙰𝚁 𝙴𝙽 𝚁𝙴𝙿𝙻𝙸𝚃`
 
-### 📌 CAFIREXOS HOST
-[![blog](https://img.shields.io/badge/Cafirexos-NovaBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
-]()
-> Activar NovaBot-MD 24/7 en cafirexos Host
+[![blog](https://img.shields.io/badge/Replit-Tutorial-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+](https://youtu.be/SMjCcfuyWQE)
 
-<a href="https://www.cafirexos.com/"><img src="https://telegra.ph/file/f400ffe819ad3c0fc87b9.jpg" height="125px"></a>
-### Información del Host
+[![Run on Repl.it](https://repl.it/badge/github/elrebelde21/NovaBot-MD)](https://repl.it/github/elrebelde21/NovaBot-MD) 
+------------------
 
-- **Página:** [`Cafirexos`](https://www.cafirexos.com)
-- **Dashboard:** [`Aquí`](https://dash.cafirexos.com)
-- **Panel:** [`Aquí`](https://panel.cafirexos.com/)
-- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VaFVSkRCMY0KFmCMDX2q)
-- **Grupo de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/FBtyc8Q5w2iJXVl5zGJdFJ)
-- **Correo:** [`Aquí`](mailto:contacto@cafirexos.com)
-- **Contacto:** [`Diego Flores`](https://wa.me/50497150165)
-
-- [x] **Configuración** <details><summary>**Ajustes del Servidor - NovaBot-MD**</summary><img src="https://telegra.ph/file/38d1458d37957d7323e7b.jpg"></details>
-
------------------- 
 ### 🟢 ACTIVAR EN CODES SPACES 
 
 [`CREAR SERVIDOR`](https://github.com/codespaces/new?skip_quickstart=true&machine=basicLinux32gb&repo=elrebelde21/NovaBot-MD&ref=main&geo=UsEast)
