@@ -129,7 +129,7 @@ conn.groupParticipantsUpdate(m.chat, [i], "remove")}}
 const time = moment(Number(msg.messageTimestamp + "000")).locale("es-mx").tz("America/Asuncion").format('MMMM Do YYYY, h:mm:ss a')   
   
 let canalId = ["120363160031023229@newsletter", "120363301598733462@newsletter"]
-let canalNombre = ["INFINITY-WA 💫", "CorinPlus-Host ☁️"]
+let canalNombre = ["INFINITY-WA 💫", "SkyUltraPlus Host ☁️"]
 
 async function getRandomChannel() {
 let randomIndex = Math.floor(Math.random() * canalId.length)
@@ -610,24 +610,6 @@ const mariafeature = () =>{
 
 //ARRANCA LA DIVERSIÓN   
 switch (prefix && command) {  
-case 'test': {
-const test = generateWAMessageFromContent(from, { viewOnceMessage: { message: { "messageContextInfo": { "deviceListMetadata": {}, "deviceListMetadataVersion": 2 }, interactiveMessage: proto.Message.InteractiveMessage.create({ body: proto.Message.InteractiveMessage.Body.create({ text: 'gey' }), footer: proto.Message.InteractiveMessage.Footer.create({ text: "" }), header: proto.Message.InteractiveMessage.Header.create({ title: "", subtitle: "", hasMediaAttachment: false }), nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({buttons: [ {"name": "single_select", "buttonParamsJson": `{"title":"Click", "sections":[{"title":"", "highlight_label": "", "rows":[ {"header":"", "title":"Velocidad", "description":"", "id":".ping"}, {"header":"", "title":"Estado", "description":"", "id":".estado"}, {"header":"", "title":"Menu", "description":"", "id":".menu"}]}]}`}]}), contextInfo: {mentionedJid: [m.sender], forwardingScore: 1, isForwarded: true,forwardedNewsletterMessageInfo: { newsletterJid: '120363167110224268@newsletter', newsletterName: 'Nova', serverMessageId: '' }}})}}}, {})     
-const testI = generateWAMessageFromContent(m.key.remoteJid, { viewOnceMessage: { message: { "messageContextInfo": { "deviceListMetadata": {}, "deviceListMetadataVersion": 2 }, interactiveMessage: proto.Message.InteractiveMessage.create({ body: proto.Message.InteractiveMessage.Body.create({ text: '' }), footer: proto.Message.InteractiveMessage.Footer.create({ text: 'NovaBot' }), header: proto.Message.InteractiveMessage.Header.create({ title: 'Nova', subtitle: 'MarioJs', hasMediaAttachment: false }), nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({ buttons: [ { "name": "quick_reply", "buttonParamsJson": `{"display_text":"Menu","id":".menu"}` }, { "name": "quick_reply", "buttonParamsJson": `{"display_text":"Ping","id":".ping"}` }], })})}}}, {}) 
-//conn.relayMessage(test.key.remoteJid, test.message, { messageId: test.key.id }, {quoted: m})
-conn.relayMessage(testI.key.remoteJid, testI.message, { messageId: testI.key.id }, {quoted: m})
-}
-break        
-   
-case 'test2':   
-
-//forwardingScore: 1, isForwarded: true,forwardedNewsletterMessageInfo: { newsletterJid: '120363167110224268@newsletter', newsletterName: 'Nova', serverMessageId: '' }}}
-//conn.sendButton(m.chat, `hola @${sender.split("@")[0]}`, wm, img2, [['𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐑', `.descarga`], ['𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃', `.ping`]], null, [['𝐍𝐨𝐯𝐚𝐁𝐨𝐭-𝐌𝐃', `https://www.prueba.com`]], { contextInfo: {mentionedJid: [m.sender]}}, { quoted: fkontak });
-const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
-  const groupsIn = chats.filter(([id]) => id.endsWith('@g.us')) //groups.filter(v => !v.read_only)
-m.reply(`*total: ${mariafeature()}*`) 
- break 
-   
-   
 case 'yts': case 'playlist': case 'ytsearch': case 'acortar': case 'google': case 'imagen': case 'traducir': case 'translate': case "tts": case 'ia': case 'chatgpt': case 'dalle': case 'ia2': case 'aimg': case 'imagine': case 'dall-e': case 'ss': case 'ssweb': case 'wallpaper': case 'hd': case 'horario': case 'bard': case 'wikipedia': case 'wiki': case 'pinterest': case 'style': case 'styletext': case 'npmsearch': await buscadores(m, command, conn, text, budy, from, fkontak, prefix, args, quoted, lolkeysapi)
 break   
  
