@@ -235,23 +235,20 @@ text20: (fb, md) => `╭─────────────┈⊷
 
 > (𝘌𝘴𝘤𝘢𝘯𝘦𝘢𝘳 𝘦𝘭 𝘘𝘙, 𝘙𝘢𝘱𝘪𝘥𝘰)
 
-🚩 --------[ CorinPlus host ]--------- 🚩
+🚩 --------[ SkyUltraPlus host ]--------- 🚩
 > *🆕 Nuevo host propio*
 
-*🔰 Tutorial de como crear cuenta el la Dashboard y crear un servidor:*
-https://youtu.be/o6ZSpMOsvHs?si=fzwZIDN5LPE1w0pI
-
 *📍Dashboard:*
-https://dash.corinplus.com
+https://dash.skyultraplus.com
 
 *✅ Panel:*
-https://panel.corinplus.com    
+https://panel.skyultraplus.com
 
 💥 *Comunidad de WhatsApp:*
-https://chat.whatsapp.com/HR3OLhsuZPqCMImzuHcuON
+https://chat.whatsapp.com/KGPhTIfgOzZCMNqoc3R7OW
 
 *🟣 Discord:*
-https://discord.com/invite/bjKpRBtkHv
+https://discord.gg/zvKgtc2RBc
 
 🧡 *Canal de WhatsApp:*
 https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g`, 
@@ -274,13 +271,13 @@ text26: (nna, host, paypal, fb) => `*¿Muy lento tu nokia y necesitas tener acti
 🟢 \`\`\`Información del Host\`\`\`
 
 💻 *Página:*
-https://dash.corinplus.com
+https://dash.skyultraplus.com
 
 *🟢 Dashboard:*
-https://dash.corinplus.com
+https://dash.skyultraplus.com
 
 ⚙️ *Panel*
-https://panel.corinplus.com
+https://panel.skyultraplus.com
 
 🧡 *Canal de WhatsApp:*
 https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
@@ -289,14 +286,13 @@ https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
 ${host}
 
 *🟣 Discord:*
-https://discord.com/invite/bjKpRBtkHv
+https://discord.gg/zvKgtc2RBc
 
 🛍️ *Método de pago:*
 *• PayPal :* ${paypal}
 *• Mercado pago, alías:* OficialGB
 *• Naranja x, alías:* hostingCalidad
 *• Uala, CVU:* 0000007900204304075982
-*• Yape/plin (Perú) :* 976673519
 *• Tigo Money (Paraguay):* +595 983 799436
 *• Personal Pay (Paraguay):* +595 973 755967
 *• Yape o método QR (Bolivia):* +59169082575
@@ -306,11 +302,12 @@ https://discord.com/invite/bjKpRBtkHv
 *• Link de pago:*
 • _link.mercadopago.com.ar/h0sting_
 • _https://payment-link.astropay.com/RbMJ_
-*• Patreon:* _https://patreon.com/CorinPlus_hosting_
-*• Kofi:* _https://ko-fi.com/corinplus_
+*• Patreon:* _https://patreon.com/SkyUltraPlus_
+*• Kofi:* _https://ko-fi.com/skyultraplus_
 
 *\`🗣📲 Contactanos para más información o alquidir los servicios:\`*
 • wa.me/5214531287294
+• wa.me/15167096032
 • wa.me/573147616444
 • ${fb}` } 
 const menu = {
@@ -332,20 +329,7 @@ text12: `\`\`\`🟢 ＬＩＳＴＡ ＤＥ ＣＯＭＡＮＤＯＳ 🟢\`\`\`
 text13: `*Palabras especificas para que el bot interactue con usted*`, 
 text14: `_*ᴼʲᶦᵗᵒ ᵉˢᶜʳᶦᵇᵉ ᵗᵃˡ ʸ ᶜᵒᵐᵒ ᵉˢᵗᵃ ᵉⁿ ᵉˡ ᵐᵉⁿˢᵃʲᵉ*_
 *ᵠᵘᶦᵉʳᵉ ᵃᵍʳᵉᵍᵃ ᵃˡᵍᵘⁿ ᵃᵘᵈᶦᵒ ⁿᵘᵉᵛᵒ ᵉˢᶜʳᶦᵇᶦʳˡᵉ ᵃ ᵐᶦ ᶜʳᵉᵃᵈᵒʳ ᵘʷᵘ*`,
-text15: (vs) => `*\`🤔 Que hay de nuevo? 🤗\`*\n\n*🌐 Nueva Version:* [ ${vs} ]\n\n*Nuevo:*
-
-🚩 Se agrego un nuevo menu ahora (menu-lista) 
-
-🚀 El play cambio ahora es con botones y eleccion (audio, video) 
-
-✅ También se ha añadido el comando:
-/enable (el cual te mostrará una lista de opciones para proteger tu grupo y activar o desactivar funciones).
-
-🟢 Por si fuera poco, ahora contamos con la inteligencia artificial de Gemini y Copitot, accesibles a través de los comandos:
-/gemini
-/copilot
-
-> Además, *⚡ hemos mejorado la estabilidad del bot*, para que disfrutes de una experiencia más fluida.
+text15: (vs) => `*\`🤔 Que hay de nuevo? 🤗\`*\n\n> *No hay nada nuevo el bot esta actualizado a sus reciente version que es:* ${vs}
 
 ᴹᵃˢ ᶜᵒᵐᵃⁿᵈᵒ ᵉˡ ᶠᵘᵗᵘʳᵃ ᵛᵉʳˢᶦᵒⁿᵉˢ ᵠᵘᶦᵉʳᵉ ᵠᵘᵉ ᵃᵍʳᵉᵍᵘᵉ ᵃˡᵍᵘⁿ ᶜᵒᵐᵃⁿᵈᵒ ᵉˡ ᵉˢᵖᵉᶜᶦᵃˡ ᵉˢᶜʳᶦᵇᶦʳˡᵉ ᵃ ᵐᶦ ᶜʳᵉᵃᵈᵒʳ`, 
 text16: `\`🌐 REGLAS DEL BOT 🌐\`
@@ -366,16 +350,17 @@ Si lo haces, seras baneado del bot y bloqueado` }
 const jadibot = {
 text: `Escanea este QR para convertirte en un bot temporal
 
-1) Haz clic en los tres puntos en la esquina superior derecha
-2) Toca WhatsApp Web
-3) Escanea este QR
-*El QR expira a los 45 segundos*\n\n`, 
-text2: `NUEVO FORMA DE HACERTE UN SUB BOT
+- Haz clic en los tres puntos en la esquina superior derecha
+- Toca WhatsApp Web
+- Escanea este QR
+> *El QR expira a los 45 segundos*\n\n`, 
+text2: `*PEGUE EL SEGUIRTE CÓDIGO PARA CONVERTIRSE EN UN SUB BOT*
 
 1) Haz clic en los tres puntos en la esquina superior derecha
 2) Toca WhatsApp Web
 3) Da click en vincular con codigo de teléfono
-4) Pega el codigo a continuación\n\n`, 
+4) Pega el codigo a continuación
+> *PD:* Este Código solo funciona con el numero que solicitó el codigo.\n\n`, 
 text3: `*⚠️ Este comando fue desabilitado por el creador*`, 
 text4: `*✅ Ya estas conectado, sea paciente, los mensajes se estan cargando...*`, 
 text5: `*Conectado con exito*`, 
@@ -469,14 +454,14 @@ Puedes solicitarlo haciendo una donación voluntaria a través de PayPal o Merca
 A través de nuestro Paypal, Mercado Pago o Naranja X.
 
 *❇️PayPal:* 
-https://paypal.me/OfcGB
+https://paypal.me/OficialGD
 
 *❇️Mercado pago:*
 *• Alias :* OficialGB
 *• CVU :* 0000003100059201491917
 
 *❇️ Naranja X:*
-*• Alias :* OficialGL
+*• Alias :* hostingCalidad
 *• CVU :* 4530000800017922067114
 
 *⚡ ¿No puedo donar hay otra opción para obtener un bot el mi Grupo?*
