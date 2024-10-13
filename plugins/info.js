@@ -10,7 +10,7 @@ const baileys = require('@whiskeysockets/baileys')
  const fs = require("fs")
  const ws = require('ws')
 const { smsg, getGroupAdmins, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, delay, format, logic, generateProfilePicture, parseMention, getRandom } = require('../libs/fuctions.js')
-let panel = "https://panel.infinitywa-host.com"
+let panel = "https://panel.skyultraplus.com"
 
 async function info(command, conn, m, speed, sender, fkontak, pickRandom, pushname, from, msg, text) {
 if (global.db.data.users[m.sender].registered < true) return m.reply(info.registra)
@@ -70,17 +70,17 @@ contextInfo:{
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363301598733462@newsletter', 
 serverMessageId: '', 
-newsletterName: 'CorinPlus-Host ☁️' },
+newsletterName: 'Sky Ultra Plus ☁️' },
 mentions: [sender], 
 forwardingScore: 9999999,
 isForwarded: true, 
 "externalAdReply": {
 "showAdAttribution": true,
 "containsAutoReply": true,
-title: `🤖 𝐂O𝐑𝐈𝐍𝐏𝐋𝐔𝐒-𝐇𝐎𝐒𝐓 🤖`,
-body: `¡El plus que necesitas!`,
+title: `🤖 𝐒𝐊𝐘𝐏𝐋𝐔𝐒-𝐇𝐎𝐒𝐓 🤖`,
+body: `¡Somos el plus y Ultra que necesitas!`,
 "previewType": "PHOTO",
-"thumbnailUrl": `https://telegra.ph/file/551d3d544d7bc607fd337.jpg`,
+"thumbnailUrl": `https://qu.ax/wXciz.jpg`,
 "thumbnail": ``, 
 "sourceUrl": yt}}},
 { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
@@ -114,16 +114,16 @@ contextInfo:{
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363301598733462@newsletter', 
 serverMessageId: '', 
-newsletterName: 'CorinPlus-Host ☁️' },
+newsletterName: 'Sky Ultra Plus ☁️' },
 forwardingScore: 9999999,
 isForwarded: true, 
 "externalAdReply": {
 "showAdAttribution": true,
 "containsAutoReply": true,
-title: `🤖 𝐂O𝐑𝐈𝐍𝐏𝐋𝐔𝐒-𝐇𝐎𝐒𝐓 🤖`,
+title: `🤖 𝐒𝐊𝐘𝐏𝐋𝐔𝐒-𝐇𝐎𝐒𝐓 🤖`,
 body: `¡El plus que necesitas!`,
 "previewType": "PHOTO",
-"thumbnailUrl": `https://telegra.ph/file/551d3d544d7bc607fd337.jpg`,
+"thumbnailUrl": `https://qu.ax/wXciz.jpg`,
 "sourceUrl": pickRandom([nna, panel2, host, md])}}},
 { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})}
 
