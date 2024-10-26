@@ -1,6 +1,6 @@
 (async () => {
 require("./settings")
-const { default: makeWASocket, CONNECTING, PHONENUMBER_MCC, Browsers, makeInMemoryStore, useMultiFileAuthState, DisconnectReason, proto , jidNormalizedUser,WAMessageStubType, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, msgRetryCounterMap, makeCacheableSignalKeyStore, fetchLatestBaileysVersion, getAggregateVotesInPollMessage } = require("@whiskeysockets/baileys")
+const { default: makeWASocket, CONNECTING, Browsers, makeInMemoryStore, useMultiFileAuthState, DisconnectReason, proto , jidNormalizedUser,WAMessageStubType, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, msgRetryCounterMap, makeCacheableSignalKeyStore, fetchLatestBaileysVersion, getAggregateVotesInPollMessage } = require("@whiskeysockets/baileys")
 const { state, saveCreds } = await useMultiFileAuthState('./sessions')
 const chalk = require('chalk')
 const moment = require('moment')
@@ -21,6 +21,8 @@ const PhoneNumber = require('awesome-phonenumber')
 const readline = require("readline")
 const { Boom } = require('@hapi/boom')
 const { parsePhoneNumber } = require("libphonenumber-js")
+const libphonenumber = require('google-libphonenumber')
+const phoneUtil = libphonenumber.PhoneNumberUtil.getInstance()
 
 const { readdirSync, statSync, unlinkSync } = require('fs')
 const {say} = cfonts;
@@ -235,7 +237,7 @@ if (!sock.authState.creds.registered) {
 let addNumber
 if (!!phoneNumber) {
 addNumber = phoneNumber.replace(/[^0-9]/g, '')
-if (!Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
+if (!await isValidPhoneNumber(addNumber)) {
 console.log(chalk.bgBlack(chalk.bold.redBright(lenguaje.console.text10))) 
 process.exit(0)
 }} else {
@@ -243,7 +245,7 @@ while (true) {
 addNumber = await question(chalk.bgBlack(chalk.bold.greenBright(lenguaje.console.text11)))
 addNumber = addNumber.replace(/[^0-9]/g, '')
   
-if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
+if (addNumber.match(/^\d+$/) && await isValidPhoneNumber(addNumber)) {
 break 
 } else {
 console.log(chalk.bold.redBright(lenguaje.console.text12))
@@ -711,3 +713,18 @@ process.on('RefenceError', console.log)
 startBot()
 
 })()
+
+async function isValidPhoneNumber(number) {
+try {
+number = number.replace(/\s+/g, '')
+// Si el número empieza con '+521' o '+52 1', quitar el '1'
+if (number.startsWith('+521')) {
+number = number.replace('+521', '+52'); // Cambiar +521 a +52
+} else if (number.startsWith('+52') && number[4] === '1') {
+number = number.replace('+52 1', '+52'); // Cambiar +52 1 a +52
+}
+const parsedNumber = phoneUtil.parseAndKeepRawInput(number)
+return phoneUtil.isValidNumber(parsedNumber)
+} catch (error) {
+return false
+}}
