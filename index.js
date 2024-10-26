@@ -237,7 +237,10 @@ if (!sock.authState.creds.registered) {
 let addNumber
 if (!!phoneNumber) {
 addNumber = phoneNumber.replace(/[^0-9]/g, '')
-if (await isValidPhoneNumber(addNumber) === false) {
+if (!addNumber.startsWith('+')) {
+addNumber = `+${addNumber}`
+}
+if (!await isValidPhoneNumber(addNumber)) {
 console.log(chalk.bgBlack(chalk.bold.redBright(lenguaje.console.text10))) 
 process.exit(0)
 }} else {
