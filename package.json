@@ -57,6 +57,7 @@
    "g-i-s": "^2.1.6", 
    "mathjs": "^11.3.0",
    "google-tts-api": "^2.0.2",
+   "google-libphonenumber": "3.2.38",
    "node-id3": "^0.2.3",
    "pino": "^8.14.1",
    "qrcode": "^1.5.3",
