@@ -224,7 +224,7 @@ return (msg?.message || "").replace(/(?:Closing stale open|Closing open session)
 msgRetryCounterCache, // Resolver mensajes en espera
 msgRetry, 
 defaultQueryTimeoutMs: undefined,
-version,  
+version: [2, 3000, 1015901307],
 }
 
 const sock = makeWASocket(socketSettings)
@@ -233,35 +233,26 @@ sock.isInit = false
 if (!fs.existsSync(`./sessions/creds.json`)) {
 if (opcion === '2' || methodCode) {
 opcion = '2'
-if (!sock.authState.creds.registered) {  
+if (!sock.authState.creds.registered) {
 let addNumber
 if (!!phoneNumber) {
 addNumber = phoneNumber.replace(/[^0-9]/g, '')
-if (!addNumber.startsWith('+')) {
-addNumber = `+${addNumber}`
-}
-if (!await isValidPhoneNumber(addNumber)) {
-console.log(chalk.bgBlack(chalk.bold.redBright(lenguaje.console.text10))) 
-process.exit(0)
-}} else {
-while (true) {
-addNumber = await question(chalk.bgBlack(chalk.bold.greenBright(lenguaje.console.text11)))
-addNumber = addNumber.replace(/[^0-9]/g, '')
-  
-if (addNumber.match(/^\d+$/) && await isValidPhoneNumber(addNumber)) {
-break 
 } else {
-console.log(chalk.bold.redBright(lenguaje.console.text12))
-}}
-rl.close()  
+do {
+phoneNumber = await question(chalk.bgBlack(chalk.bold.greenBright("\n\n✳️ Escriba su número\n\nEjemplo: 5491168xxxx\n\n\n\n")))
+phoneNumber = phoneNumber.replace(/\D/g,'')
+if (!phoneNumber.startsWith('+')) {
+phoneNumber = `+${phoneNumber}`
 }
-
+} while (!await isValidPhoneNumber(phoneNumber))
+rl.close()
+addNumber = phoneNumber.replace(/\D/g, '')
 setTimeout(async () => {
 let codeBot = await sock.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
-console.log(chalk.bold.white(chalk.bgMagenta(lenguaje.console.text13)), chalk.bold.white(chalk.white(codeBot)))
+console.log(chalk.bold.white(chalk.bgMagenta(`CÓDIGO DE VINCULACIÓN:`)), chalk.bold.white(chalk.white(codeBot)))
 }, 2000)
-}}
+}}}
 }
 
 async function getMessage(key) {
