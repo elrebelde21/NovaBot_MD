@@ -135,6 +135,13 @@ global.xmoji = '🔥'
 global.multiplier = 90 // Cuanto más alto, más difícil subir de nivel 
 global.maxwarn = '4' // máxima advertencias 
 
+//---------------[ IDs de canales ]----------------
+
+global.ch = {
+ch1: '120363160031023229@newsletter',
+ch2: '120363301598733462@newsletter',
+}
+
 //----------------------------------------------------
 
 let file = require.resolve(__filename) 
