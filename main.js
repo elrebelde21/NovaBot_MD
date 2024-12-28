@@ -128,8 +128,8 @@ for (let i of orangnya) {
 conn.groupParticipantsUpdate(m.chat, [i], "remove")}}  
 const time = moment(Number(msg.messageTimestamp + "000")).locale("es-mx").tz("America/Asuncion").format('MMMM Do YYYY, h:mm:ss a')   
   
-let canalId = ["120363160031023229@newsletter", "120363301598733462@newsletter"]
-let canalNombre = ["INFINITY-WA 💫", "SkyUltraPlus Host ☁️"]
+let canalId = ["120363160031023229@newsletter", "120363301598733462@newsletter", "120363355261011910@newsletter", "120363297379773397@newsletter", "120363374372683775@newsletter"]
+let canalNombre = ["INFINITY-WA 💫", "SkyUltraPlus Host ☁️", "LoliBot ✨", "Test ✨", "Canal de memes/frases/videos 💓"]
 
 async function getRandomChannel() {
 let randomIndex = Math.floor(Math.random() * canalId.length)
