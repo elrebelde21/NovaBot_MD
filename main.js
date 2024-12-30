@@ -1,13 +1,13 @@
 //Código desde cero y comentarios hecho por: 
 // @gata_dios   
 // @Skidy89   
-// @elrebelde21          
+// @elrebelde21            
                                      
-//--------------------[ IMPORTACIONES ]-----------------------          
+//--------------------[ IMPORTACIONES ]-----------------------             
 const baileys = require('@whiskeysockets/baileys'); // trabajar a través de descargas por Whatsapp 
 const { WaMessageStubType, WA_DEFAULT_EPHEMERAL, BufferJSON, areJidsSameUser, downloadContentFromMessage, generateWAMessageContent, generateWAMessageFromContent, generateWAMessage, prepareWAMessageMedia, getContentType,  relayMessage} = require('@whiskeysockets/baileys'); // Importa los objetos 'makeWASocket' y 'proto' desde el módulo '@whiskeysockets/baileys'       
 const { default: makeWASocket, proto } = require("@whiskeysockets/baileys")  
-const moment = require('moment-timezone') // Trabajar con fechas y horas en diferentes zonas horarias
+const moment = require('moment-timezone') // Trabajar con fechas y horas en diferentes zonas horarias 
 const gradient = require('gradient-string') // Aplicar gradientes de color al texto      
 const { exec, spawn, execSync } =  require("child_process")// Función 'execSync' del módulo 'child_process' para ejecutar comandos en el sistema operativo 
 const chalk = require('chalk') // Estilizar el texto en la consola  
@@ -88,6 +88,8 @@ const _isBot = conn.user.jid
 
 m.isBot = m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') && m.id.length === 20;
 if (m.isBot) return 
+if (m.chat === "120363297379773397@newsletter") return; 
+if (m.chat === "120363365700004535@newsletter") return;
 const userSender = m.key.fromMe ? botnm : m.isGroup && m.key.participant.includes(":") ? m.key.participant.split(":")[0] + "@s.whatsapp.net" : m.key.remoteJid.includes(":") ? m.key.remoteJid.split(":")[0] + "@s.whatsapp.net" : m.key.fromMe ? botnm : m.isGroup ? m.key.participant : m.key.remoteJid  
 const isCreator = [conn.decodeJid(conn.user.id), ...global.owner.map(([numero]) => numero)].map((v) => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender);
 const isOwner = isCreator || m.fromMe;
@@ -188,23 +190,21 @@ chalk.bold.white(`\n│💬${lenguaje.consola.text6}`) + chalk.whiteBright(`\n�
 )}          
 
 //--------------------[ AUTOBIO ]----------------------- 
-/*if (global.db.data.settings[numBot].autobio) { 
-let setting = global.db.data.settings[numBot]
-if (new Date() * 1 - setting.status > 1000) {
-let uptime = await runtime(process.uptime())
+if (global.db.data.settings[numBot].autobio) { 
+let setting = global.db.data.settings[numBot];
+if (new Date() * 1 - setting.status > 30 * 60 * 1000) {
+let uptime = runtime(process.uptime());  
 var timestamp = speed();   
-var latensi = speed() - timestamp 
-let text = [`${lenguaje.Bio.text} ${Object.keys(global.db.data.users).length} ${lenguaje.Bio.text2} ${latensi.toFixed(4)} 🚀`, `${lenguaje.Bio.text3} ${runtime(process.uptime())}\n\n${lenguaje.Bio.text4}`, `${lenguaje.Bio.text5}`, `👑 NovaBot uso: ${conn.public ? 'Publico' : 'Privado'} | ${lenguaje.Bio.text6} ${runtime(process.uptime())} | ${lenguaje.Bio.text7} ${Object.keys(global.db.data.users).length}`]
-let bio = text[Math.floor(Math.random() * text.length)]
+var latensi = speed() - timestamp;
+let text = [`${lenguaje.Bio.text} ${Object.keys(global.db.data.users).length} ${lenguaje.Bio.text2} ${latensi.toFixed(4)} 🚀`, `${lenguaje.Bio.text3} ${uptime}\n\n${lenguaje.Bio.text4}`, `${lenguaje.Bio.text5}`, `👑 NovaBot uso: ${conn.public ? 'Publico' : 'Privado'} | ${lenguaje.Bio.text6} ${uptime} | ${lenguaje.Bio.text7} ${Object.keys(global.db.data.users).length}`];
+let bio = text[Math.floor(Math.random() * text.length)];  
 try {
-await conn.updateProfileStatus(bio)
-//await delay(3 * 3000) 
-//await conn.updateProfilePicture(numBot, { url: "https://telegra.ph/file/84b0bad9adbbd5ed2b95e.jpg" })
-setting.status = new Date() * 1 
-} catch {
-console.log(`[𝚄𝙿𝙳𝙰𝚃𝙴]\n𝙿𝚒𝚗𝚐: ${latensi.toFixed(4)}`) 
-}}} */
-  
+await conn.updateProfileStatus(bio);  
+setting.status = new Date() * 1; 
+} catch (error) {            
+console.log(`[𝚄𝙿𝙳𝙰𝚃𝙴] Ping: ${latensi.toFixed(4)}ms`);
+}}}
+
 //--------------------[ AUTOREAD ]-----------------------
 if (!conn.autoread && m.message && prefix) {
 //await delay(1 * 1000) 
@@ -395,7 +395,32 @@ user.level++
 if (before !== user.level) { 
 let text = [`${lenguaje['smsAutonivel']()} @${sender.split`@`[0]} ${lenguaje['smsAutonivel2']()}\n${lenguaje['smsAutonivel3']()} ${before} ⟿ ${user.level}\n${lenguaje['smsAutonivel6']()} ${user.role}\n${lenguaje['smsAutonivel7']()} ${new Date().toLocaleString('id-ID')}\n\n${lenguaje['smsAutonivel8']()}`, `${lenguaje['smsAutonivel9']()} ${lenguaje['smsAutonivel4']()} ${before}\n${lenguaje['smsAutonivel5']()} ${user.level}\n${lenguaje['smsAutonivel6']()} ${user.role}\n${lenguaje['smsAutonivel7']()} ${new Date().toLocaleString('id-ID')}`] 
 let str = text[Math.floor(Math.random() * text.length)]
-return conn.sendMessage(m.chat, { text: str, contextInfo:{mentionedJid:[sender]}},{quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})}} 
+return conn.sendMessage(m.chat, { text: str, contextInfo:{mentionedJid:[sender]}},{quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+let niv = `*${m.pushName || 'Anónimo'}* Obtiene un nuevo nivel 🥳
+
+*• Nivel anterior:* ${before} 
+*• Nivel actúal :* ${user.level}
+*• Rol:* ${user.role}
+*• Bot:* ${wm}`
+let nivell = `*${m.pushName || 'Anónimo'} Haz subido un nuevo nivel 🥳*
+
+> _*• NIVEL:* ${before} ⟿ ${user.level}_`
+let nivelll = `🥳 ${m.pushName || 'Anónimo'} Que pro Acaba de alcanzar un nuevo nivel 🥳
+
+*• Nivel:* ${before} ⟿ ${user.level}
+*• Rango:* ${user.role}
+*• Bot:* ${wm}`
+await conn.sendMessage("120363365700004535@newsletter", { text: pickRandom(niv, nivelll), contextInfo: {
+externalAdReply: {
+title: "【 🔔 Notificación General 🔔 】",
+body: '¡Haz subido de nivel 🥳!',
+thumbnail: imagen1, 
+sourceUrl: pickRandom(nna, nna2, nn, md, yt, tiktok),
+mediaType: 1,
+showAdAttribution: false,
+renderLargerThumbnail: false
+}}}, { quoted: null })
+}} 
  
 //----------------[ CHATBOT/AUTOMATICO ]-------------------
 if (global.db.data.chats[m.chat].simi) {
