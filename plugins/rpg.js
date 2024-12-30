@@ -10,6 +10,7 @@ const axios = require('axios')
 const cheerio = require('cheerio')
 const Jimp = require('jimp')
 const os = require('os')
+const PhoneNumber = require('awesome-phonenumber') 
 const {createHash} = require('crypto') 
 const { canLevelUp, xpRange } = require('../libs/levelling.js')
 let minar = `${pickRandom(['Que pro 😎 has minado',
@@ -39,6 +40,10 @@ user.regTime = + new Date
 user.registered = true
 const sn = createHash('md5').update(m.sender).digest('hex');
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? conn.user.jid : m.sender
+//let ppch = await conn.profilePictureUrl(who, 'image').catch(_ => "") 
+let api = await axios.get(`${apis}/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`)
+let userNationalityData = api.data.result
+let userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido'
 const date = moment.tz('America/Bogota').format('DD/MM/YYYY')
 const time = moment.tz('America/Argentina/Buenos_Aires').format('LT')
 let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
@@ -60,10 +65,27 @@ isForwarded: false,
 "sourceUrl": md}}},
 { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 //conn.sendButton(m.chat, lenguaje.smsReg7(name, user, age, time, date, sender, sn, prefix, rtotalreg), 'Seleccióna tu idioma', null, [['𝐄𝐒𝐏𝐀𝐍̃𝐎𝐋', `.idioma 1`], ['𝐈𝐍𝐆𝐋𝐄𝐒', `.idioma 2`], ['𝐀𝐑𝐀𝐁𝐄', `.idioma 3`], ['𝐈𝐍𝐃𝐎𝐍𝐄𝐒𝐈𝐀', `.idioma 4`], ['𝐏𝐎𝐑𝐓𝐔𝐆𝐔𝐄𝐒', `.idioma 5`], ['𝐑𝐔𝐒𝐎', `.idioma 6`]], null, [['𝐂𝐚𝐧𝐚𝐥', nna]], {quoted: fkontak})
-await delay(2 * 2000)
+await delay(1000)
 m.reply(sn) 
-await delay(2 * 2000)
+await delay(1000)
 m.reply(lenguaje.smsReg8()) 
+await conn.sendMessage("120363365700004535@newsletter", { text: `◉ *Usuarios:* ${m.pushName || 'Anónimo'}
+◉ *País:* ${userNationality}
+◉ *Verificación:* ${user.name}
+◉ *Edad:* ${age} años
+◉ *Fecha:* ${date}
+◉ *Bot:* ${wm}
+◉ *Número de serie:*
+⤷ ${sn}`, contextInfo: {
+externalAdReply: {
+title: "『 𝙉𝙊𝙏𝙄𝙁𝙄𝘾𝘼𝘾𝙄𝙊́𝙉 📢 』",
+body: "Nuevo usuario registrado 🥳",
+thumbnail: imagen1, 
+sourceUrl: pickRandom(nna, nna2, nn, md, yt, tiktok),
+mediaType: 1,
+showAdAttribution: false,
+renderLargerThumbnail: false
+}}}, { quoted: null })
 }
 
 if (command == 'unreg') {

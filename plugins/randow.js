@@ -11,7 +11,14 @@ if (global.db.data.users[m.sender].banned) return
 if (command == 'memes') {
 let hispamemes = require("hispamemes") 
 const meme = hispamemes.meme()
-conn.sendButton(m.chat, '🤣', botname, meme, [['🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄', `/${command}`]], null, null, m)
+conn.sendMessage(m.chat, { image: { url: meme }, caption: `🤣`, footer: wm, buttons: [{ buttonId: `/${command}`, buttonText: { displayText: "🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄",
+},
+type: 1,
+}],
+viewOnce: true,
+headerType: 4,
+}, { quoted: m });
+//conn.sendButton(m.chat, '🤣', botname, meme, [['🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄', `/${command}`]], null, null, m)
 //sendImageAsUrl(meme, '🤣')
 m.react('😆')}
 if (command == 'loli') {

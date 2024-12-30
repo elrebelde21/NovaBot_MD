@@ -186,7 +186,7 @@ let result = await luminsesi(query, username, syms1);
  await m.reply(result)
 } catch {
 try {
-let gpt = await fetch(`https://deliriusapi-official.vercel.app/ia/gptweb?text=${text}`) 
+let gpt = await fetch(`${apis}/ia/gptweb?text=${text}`) 
 let res = await gpt.json()
 await m.reply(res.gpt)
 } catch {
@@ -208,16 +208,18 @@ console.log(e)
 if (command == 'gemini') { 
 if (!text) return m.reply(`${lenguaje.lengua.ia} ${prefix + command} Recomienda un top 10 de películas de acción`) 
 conn.sendPresenceUpdate('composing', m.chat);
-let gpt = await fetch(`https://deliriusapi-official.vercel.app/api/gemini?query=${text}`)
+let gpt = await fetch(`${apis}/ia/gemini?query=${text}`)
 let res = await gpt.json()
-await m.reply(res.message)}
+await m.reply(res.message)
+}
 
 if (command == 'copilot' || command == 'bing') { 
 if (!text) return m.reply(`${lenguaje.lengua.ia} ${prefix + command} Recomienda un top 10 de películas de acción`) 
 conn.sendPresenceUpdate('composing', m.chat);
-let gpt = await fetch(`https://deliriusapi-official.vercel.app/api/bingia?query=${text}`)
+let gpt = await fetch(`${apis}/ia/bingia?query=${text}`)
 let res = await gpt.json()
-await m.reply(res.message)}
+await m.reply(res.message)
+}
 
 if (command == 'dalle' || command == 'aimg' || command == 'imagine' || command == 'dall-e') {
 if (!text) return m.reply(`${lenguaje.lengua.ia2} ${prefix + command} gatitos llorando`) 
