@@ -216,7 +216,7 @@ text20: (fb, md) => `╭─────────────┈⊷
 ┌┤❇️ _Dudas: ${fb}_
 ┌┤❇️ _Tutoríal: https://youtu.be/OhbJjp0L2QA?si=ZqRgG3SGTRFSW6CH_
 ┌┤❇️ _1 GB de almacenamiento_
-┌┤❇️ _Termux: https://www.mediafire.com/file/3hsvi3xkpq3a64o/termux_118.apk/file_
+┌┤❇️ _Termux: https://f-droid.org/es/packages/com.termux_
 ┌┤❇️ _GitHub: ${md}_
 ┌┤❇️ _un whatsapp inmune (secundario)_
 ┌┤❇️ _un número victual (otro numero)_
@@ -251,7 +251,9 @@ https://chat.whatsapp.com/KGPhTIfgOzZCMNqoc3R7OW
 https://discord.gg/zvKgtc2RBc
 
 🧡 *Canal de WhatsApp:*
-https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g`, 
+https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
+
+`, 
 text21: `*𝙸𝙽𝙶𝚁𝙴𝚂𝙴 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙲𝙾𝙽 𝙵𝙰𝙻𝙻𝙾𝚂*\n\n*𝙴𝙹𝙴𝙼𝙿𝙻𝙾:`, 
 text22: `𝙴𝙻 𝚁𝙴𝙿𝙾𝚁𝚃𝙴 𝙵𝚄𝙴 𝙴𝙽𝚅𝙸𝙰𝙳𝙾 𝙰 𝙼𝙸 𝙲𝚁𝙴𝙰𝙳𝙾𝚁, 𝙽𝙾𝚂 𝙲𝙾𝙽𝚃𝙰𝚁𝙴𝙼𝙾𝚂 𝙲𝙾𝙽 𝚄𝚂𝚃𝙴𝙳 𝚂𝙸 𝙴𝚂 𝙽𝙴𝙲𝙴𝚂𝙰𝚁𝙸𝙾, 𝙳𝙴 𝚂𝙴𝚁 𝙵𝙰𝙻𝚂𝙾 𝚂𝙴𝚁𝙰 𝙸𝙶𝙽𝙾𝚁𝙰𝙳𝙾 𝚈 𝙱𝙻𝙾𝚀𝚄𝙴𝙰𝙳𝙾 𝙳𝙴𝙻 𝙱𝙾𝚃*`, 
 text23: (paypal) => `*╼╼╼╼╼╼╼[ 💖 DONACION 💖 ]╾╾╾╾╾╾╾╾*\n\n*Hola 👋, si quieres apoyar este proyecto, puedes hacerlo a través de donaciones voluntarias por PayPal, Mercado Pago o Naranja X.*\n\n╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍\n\n*❇️PayPal:*\n${paypal}\n\n╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍\n\n*❇️Mercado pago:*\n*• Alias :* OficialGB\n*• CVU :* 0000003100059201491917\n\n╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍\n\n*❇️ Naranja X:*\n*• Alias :* OficialGL\n*• CVU :* 4530000800017922067114`, 
@@ -271,7 +273,7 @@ text26: (nna, host, paypal, fb) => `*¿Muy lento tu nokia y necesitas tener acti
 🟢 \`\`\`Información del Host\`\`\`
 
 💻 *Página:*
-https://dash.skyultraplus.com
+https://skyultraplus.com
 
 *🟢 Dashboard:*
 https://dash.skyultraplus.com
@@ -674,7 +676,7 @@ const smsReg8 = () => { return `*💬 Elegir tu idioma con:* #idioma` }
 const cuenta = (nna, md, yt, tiktok, fb) => { return `*Bienvenido a las cuentas oficiales ✨*
 
 *👑 Numero del bot oficial:*
-• https://wa.me/message/3KXD5XHYHUZBC1
+• wa.me/5215551684500
 
 *✨ Canal del WhatsApp / Update:*
 • ${nna}
