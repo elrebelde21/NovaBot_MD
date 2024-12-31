@@ -1,9 +1,9 @@
 //Código desde cero y comentarios hecho por: 
 // @gata_dios   
 // @Skidy89   
-// @elrebelde21            
-                                     
-//--------------------[ IMPORTACIONES ]-----------------------             
+// @elrebelde21             
+                                        
+//--------------------[ IMPORTACIONES ]-----------------------              
 const baileys = require('@whiskeysockets/baileys'); // trabajar a través de descargas por Whatsapp 
 const { WaMessageStubType, WA_DEFAULT_EPHEMERAL, BufferJSON, areJidsSameUser, downloadContentFromMessage, generateWAMessageContent, generateWAMessageFromContent, generateWAMessage, prepareWAMessageMedia, getContentType,  relayMessage} = require('@whiskeysockets/baileys'); // Importa los objetos 'makeWASocket' y 'proto' desde el módulo '@whiskeysockets/baileys'       
 const { default: makeWASocket, proto } = require("@whiskeysockets/baileys")  
@@ -451,6 +451,8 @@ await m.reply(resu2[0][0][0])}}
 if (!m.isGroup && !isCreator) {  
 //const bot = global.db.data.users[m.sender] || {};
 if (global.db.data.settings[numBot].antiprivado) {
+if (m.chat === "120363297379773397@newsletter") return; 
+if (m.chat === "120363355261011910@newsletter") return;
 conn.sendMessage(m.chat, {text: `*${lenguaje['smsWel']()}* @${sender.split`@`[0]}, ${lenguaje['smsAntiPv']()}\n${nn2}`, mentions: [m.sender], }, {quoted: m}) 
 await delay(2 * 2000) 
 await conn.updateBlockStatus(m.chat, 'block')   
@@ -1009,6 +1011,10 @@ if (budy.includes(`Bot`) || budy.includes(`simi`)) {
 game(m, budy, command, text, pickRandom, pushname, conn, participants, sender, who, body, sendImageAsUrl)}
 
 if (m.mentionedJid.includes(conn.user.jid) || (m.quoted && m.quoted.sender === conn.user.jid)) {
+m.isBot = m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') && m.id.length === 20;
+if (m.isBot) return 
+if (m.chat === "120363297379773397@newsletter") return; 
+if (m.chat === "120363355261011910@newsletter") return;
 await conn.sendPresenceUpdate('composing', m.chat)    
 
 async function luminsesi(q, username, logic) {
