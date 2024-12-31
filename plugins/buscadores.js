@@ -8,7 +8,7 @@ const gradient = require('gradient-string')
 const fetch = require('node-fetch') 
 const axios = require('axios')
 const cheerio = require('cheerio')
-const {googleImage, pinterest} = require('@bochilteam/scraper') 
+const {googleImage, googleIt, pinterest} = require('@bochilteam/scraper') 
 const Jimp = require('jimp')
 const FormData = require("form-data") 
 const os = require('os')
@@ -86,27 +86,54 @@ m.reply(`${shortUrl1}`)
 }
 
 if (command == 'google') {
+const google = require('google-it')
 if (!text) return m.reply(`${lenguaje.lengua.ejem}\n${prefix + command} gatito`)
-let google = require('google-it')
+try {
+const res = await fetch(`https://deliriussapi-oficial.vercel.app/search/googlesearch?query=${encodeURIComponent(text)}`);
+const data = await res.json();
+    
+if (data.status && data.data && data.data.length > 0) {
+let teks = `💫  ${lenguaje['result']()} ${text}\n\n`;
+for (let result of data.data) {
+teks += `🔶 ${lenguaje.lengua.titulo} *${result.title}*\n🔶 *LINK :* ${result.url}\n🔶 ${lenguaje.lengua.desc} ${result.description}\n\n✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧\n\n`;
+}                
+const ss = `https://image.thum.io/get/fullpage/https://google.com/search?q=${encodeURIComponent(text)}`;
+conn.sendFile(m.chat, ss, 'result.png', teks, m);
+m.react("✅")                 
+}} catch (error) {
+try {
+const url = 'https://google.com/search?q=' + encodeURIComponent(text);
 google({'query': text}).then(res => {
-let teks = `💫  ${lenguaje['result']()} ${text}\n\n`
+let teks = `💫  ${lenguaje['result']()} ${text}\n\n*${url}*\n\n`
 for (let g of res) {
-teks += `🔶 ${lenguaje.lengua.titulo} ${g.title}\n`
-teks += `🔶 ${lenguaje.lengua.desc} ${g.snippet}\n`
-teks += `🔶 *LINK :* ${g.link}\n\n✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧\n\n`
-} 
-m.reply(teks)})
+teks += `🔶 ${lenguaje.lengua.titulo} ${g.title}\n🔶 *LINK :* ${g.link}\n_${g.snippet}_\n\n✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧\n\n`
 }
+const ss = `https://image.thum.io/get/fullpage/${url}`
+conn.sendFile(m.chat, ss, 'error.png', teks, m)
+});
+m.react("✅") 
+handler.limit = 1;         
+} catch (e) {
+console.log(e);
+m.react("❌")  
+}}}
 
 if (command == 'imagen') {
 const {googleImage} = require('@bochilteam/scraper') 
 if (budy.includes('gore') || budy.includes('cp')|| budy.includes('porno')|| budy.includes('Gore')|| budy.includes('rule')|| budy.includes('CP')|| budy.includes('Rule34')) return m.reply(`😐 NO PIDA BOLUDECES`) 
 if (!text) return m.reply(`${lenguaje.lengua.ejemplo}\n${prefix + command} gatito`)
 try {  
-image = await fetchJson(`https://api.akuari.my.id/search/googleimage?query=${text}`)
-n = image.result
-images = n[Math.floor(Math.random() * n.length)]
-conn.sendButton(m.chat, `💫 ${lenguaje['result']()} ${text}`, botname, images, [['🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄', `/imagen ${text}`]], null, null, m)
+const res = await googleImage(text);
+const image = await pickRandom(res);
+const link = image;
+conn.sendMessage(m.chat, { image: { url: link }, caption: `💫 ${lenguaje['result']()} ${text}`, footer: botname, buttons: [{ buttonId: `/imagen ${text}`, buttonText: { displayText: "🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄",
+},
+type: 1,
+}],
+viewOnce: true,
+headerType: 4,
+}, { quoted: m });
+//conn.sendButton(m.chat, `💫 ${lenguaje['result']()} ${text}`, botname, images, [['🔄 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 🔄', `/imagen ${text}`]], null, null, m)
 //conn.sendMessage(m.chat, { image: { url: images}, caption: `💫 ${lenguaje['result']()} ${text}`}, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } catch {
 try {  

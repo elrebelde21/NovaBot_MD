@@ -404,15 +404,13 @@ m.reply(`\`\`\`⚠️ OCURRIO UN ERROR ⚠️\`\`\`\n\n> *Reporta el siguiente e
 console.log(e)
 }}
 
-    if (command == 'mediafire') {
-        const {
-            mediafireDl
-        } = require('../libs/mediafire.js')
-        if (!text) return m.reply(`${lenguaje.lengua.ejem}\n${prefix + command} https://www.mediafire.com/file/admrdma1ff3cq10/Siete-Ocho.zip/file`)
-        m.react("📥")
-        const baby1 = await mediafireDl(text)
-        if (baby1[0].size.split('MB')[0] >= 1500) return reply(lenguaje.descargar.text15 + util.format(baby1))
-        const result4 = `╭━─━─━─≪💎≫─━─━─━╮
+if (command == 'mediafire') {
+const { mediafireDl } = require('../libs/mediafire.js')
+if (!text) return m.reply(`${lenguaje.lengua.ejem}\n${prefix + command} https://www.mediafire.com/file/admrdma1ff3cq10/Siete-Ocho.zip/file`)
+m.react("📥")
+const baby1 = await mediafireDl(text)
+if (baby1[0].size.split('MB')[0] >= 1500) return reply(lenguaje.descargar.text15 + util.format(baby1))
+const result4 = `╭━─━─━─≪💎≫─━─━─━╮
 ┆      *MEDIAFIRE* 
 ┆——————«•»——————
 ┆🔸️ ${lenguaje.descargar.text12} ${baby1[0].nama} 
@@ -421,33 +419,23 @@ console.log(e)
 ┆——————«•»——————
 ┆🔸️ ${lenguaje.descargar.text14} ${baby1[0].mime}
 ╰━─━─━─≪💎≫─━─━─━╯\n\n${lenguaje.descargar.descargado}`
-        m.reply(`${result4}`)
-        conn.sendMessage(m.chat, {
-            document: {
-                url: baby1[0].link
-            },
-            fileName: baby1[0].nama,
-            mimetype: baby1[0].mime,
-            quoted: m,
-            contextInfo: {
-                externalAdReply: {
-                    title: botname,
-                    body: "💫",
-                    showAdAttribution: true,
-                    mediaType: 2,
-                    thumbnail: fs.readFileSync(`./media/menu.jpg`),
-                    mediaUrl: md,
-                    sourceUrl: md
-                }
-            }
-        }, {
-            quoted: m,
-            ephemeralExpiration: 24 * 60 * 100,
-            disappearingMessagesInChat: 24 * 60 * 100
-        })
-        db.data.users[m.sender].limit -= 2
-        m.reply('2 ' + info.limit)
-    }
+m.reply(`${result4}`)
+conn.sendMessage(m.chat, { document: { url: baby1[0].link }, 
+fileName: baby1[0].nama,
+mimetype: baby1[0].mime,
+quoted: m,
+contextInfo: { externalAdReply: {
+title: botname,
+body: "💫",
+showAdAttribution: true,
+mediaType: 2,
+thumbnail: fs.readFileSync(`./media/menu.jpg`),
+mediaUrl: md,
+sourceUrl: md
+}}}, { quoted: m, ephemeralExpiration: 24 * 60 * 100, disappearingMessagesInChat: 24 * 60 * 100 })
+db.data.users[m.sender].limit -= 2
+m.reply('2 ' + info.limit)
+}
 }
 
 async function descarga2(m, command, text, args, conn, lolkeysapi, isCreator) {
@@ -460,7 +448,18 @@ if (!args[0] || !text) return m.reply(`${lenguaje.lengua.ejem}\n${prefix + comma
 if (!args[0].match(/www.facebook.com|fb.watch/g)) return m.reply(`${lenguaje.lengua.ejem}\n${prefix + command} https://fb.watch/ncowLHMp-x/?mibextid=rS40aB7S9Ucbxw6v`)
 m.react("📥")
 conn.fakeReply(m.chat, `${lenguaje.lengua.espere}`, '0@s.whatsapp.net', 'No haga spam')
-     try {
+try {
+const apiUrl = `https://api.dorratz.com/fbvideo?url=${encodeURIComponent(args[0])}`;
+const response = await fetch(apiUrl);
+const data = await response.json();
+if (data.result) {
+const hdUrl = data.result.hd;
+const sdUrl = data.result.sd;
+const audioUrl = data.result.audio;        
+const downloadUrl = hdUrl || sdUrl; 
+await conn.sendFile(m.chat, downloadUrl, 'video.mp4', '✅ Aquí está tu video de Facebook', m);
+}} catch (err1) {
+try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/facebook?url=${encodeURIComponent(args[0])}`;
 const apiResponse = await fetch(apiUrl);
 const delius = await apiResponse.json();
@@ -516,7 +515,7 @@ m.react(`✅`)
 } catch (e) {
 m.react(`❌`) 
 console.log(e) 
-}}}}}}}}}
+}}}}}}}}}}
 
 if (command == 'instagram' || command == 'ig') {
 const datas = global
