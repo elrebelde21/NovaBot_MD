@@ -1,8 +1,8 @@
 //Código desde cero y comentarios hecho por: 
 // @gata_dios   
 // @Skidy89   
-// @elrebelde21             
-                                        
+// @elrebelde21                 
+                                          
 //--------------------[ IMPORTACIONES ]-----------------------              
 const baileys = require('@whiskeysockets/baileys'); // trabajar a través de descargas por Whatsapp 
 const { WaMessageStubType, WA_DEFAULT_EPHEMERAL, BufferJSON, areJidsSameUser, downloadContentFromMessage, generateWAMessageContent, generateWAMessageFromContent, generateWAMessage, prepareWAMessageMedia, getContentType,  relayMessage} = require('@whiskeysockets/baileys'); // Importa los objetos 'makeWASocket' y 'proto' desde el módulo '@whiskeysockets/baileys'       
@@ -85,16 +85,24 @@ let t = m.messageTimestamp
 const pushname = m.pushName || "Sin nombre" 
 const botnm = conn.user.id.split(":")[0] + "@s.whatsapp.net"  
 const _isBot = conn.user.jid
-
 m.isBot = m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') && m.id.length === 20;
 if (m.isBot) return 
 if (m.chat === "120363297379773397@newsletter") return; 
-if (m.chat === "120363365700004535@newsletter") return;
+if (m.chat === "120363355261011910@newsletter") return;
+
+/**
+ * Returns early if ID starts with 'NJX-' due to Baileys' different generateId system.
+ * @param {Object} m - The object containing the ID to check.
+ * @returns {void} - Returns early if ID starts with 'NJX-', otherwise continues with the function.
+ */
+if (m.id.startsWith('NJX-')) return;
+
 const userSender = m.key.fromMe ? botnm : m.isGroup && m.key.participant.includes(":") ? m.key.participant.split(":")[0] + "@s.whatsapp.net" : m.key.remoteJid.includes(":") ? m.key.remoteJid.split(":")[0] + "@s.whatsapp.net" : m.key.fromMe ? botnm : m.isGroup ? m.key.participant : m.key.remoteJid  
 const isCreator = [conn.decodeJid(conn.user.id), ...global.owner.map(([numero]) => numero)].map((v) => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender);
 const isOwner = isCreator || m.fromMe;
 const isMods = isOwner || global.mods.map((v) => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender);
 const isPrems = isOwner || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) 
+m.isWABusiness = global.conn.authState?.creds?.platform === 'smba' || global.conn.authState?.creds?.platform === 'smbi'
 //const isCreator = global.owner.map(([numero]) => numero.replace(/[^\d\s().+:]/g, '').replace(/\s/g, '') + '@s.whatsapp.net').includes(userSender) 
 const itsMe = m.sender == conn.user.id ? true : false 
 const text = args.join(" ") 
@@ -336,25 +344,30 @@ conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}
 
 //--------------------[ ANTITOXIC ]-----------------------
 if (global.db.data.chats[m.chat].antitoxic && !isCreator) {   
-if (budy.match(`g0re|g0r3|g.o.r.e|sap0|sap4|malparido|malparida|malparidos|malparidas|m4lp4rid0|m4lp4rido|m4lparido|malp4rido|m4lparid0|malp4rid0|chocha|chup4la|chup4l4|chupalo|chup4lo|chup4l0|chupal0|chupon|chupameesta|sabandija|hijodelagranputa|hijodeputa|hijadeputa|hijadelagranputa|kbron|kbrona|cajetuda|laconchadedios|putita|putito|put1t4|putit4|putit0|put1to|put1ta|pr0stitut4s|pr0stitutas|pr05titutas|pr0stitut45|prostitut45|prostituta5|pr0stitut45|fanax|f4nax|drogas|droga|dr0g4|nepe|p3ne|p3n3|pen3|p.e.n.e|pvt0|puto|pvto|put0|hijodelagransetentamilparesdeputa|Chingadamadre|coño|c0ño|coñ0|c0ñ0|afeminado|drog4|cocaína|marihuana|chocho|chocha|cagon|pedorro|agrandado|agrandada|pedorra|sape|nmms|mamar|chigadamadre|hijueputa|chupa|kaka|caca|bobo|boba|loco|loca|chupapolla|estupido|estupida|estupidos|polla|pollas|idiota|maricon|chucha|verga|vrga|naco|zorra|zorro|zorras|zorros|pito|huevon|huevona|huevones|rctmre|mrd|ctm|csm|cp|cepe|sepe|sepesito|cepecito|cepesito|hldv|ptm|baboso|babosa|babosos|babosas|feo|fea|feos|feas|webo|webos|mamawebos|chupame|bolas|qliao|imbecil|embeciles|kbrones|cabron|capullo|carajo|gore|gorre|gorreo|sapo|sapa|mierda|cerdo|cerda|puerco|puerca|perra|perro|joden|jodemos|dumb|fuck|shit|bullshit|cunt|cum|semen|bitch|motherfucker|foker|fucking`)) { 
-if (m.isBaileys && m.fromMe) { 
-return !0 }   
-if (!m.isGroup) { 
-return !1 }
-if (isGroupAdmins) return
+const toxicWords = `g0re|g0r3|g.o.r.e|sap0|sap4|malparido|malparida|malparidos|malparidas|m4lp4rid0|m4lp4rido|m4lparido|malp4rido|m4lparid0|malp4rid0|chocha|chup4la|chup4l4|chupalo|chup4lo|chup4l0|chupal0|chupon|chupameesta|sabandija|hijodelagranputa|hijodeputa|hijadeputa|hijadelagranputa|kbron|kbrona|cajetuda|laconchadedios|putita|putito|put1t4|putit4|putit0|put1to|put1ta|pr0stitut4s|pr0stitutas|pr05titutas|pr0stitut45|prostitut45|prostituta5|pr0stitut45|fanax|f4nax|drogas|droga|dr0g4|nepe|p3ne|p3n3|pen3|p.e.n.e|pvt0|puto|pvto|put0|hijodelagransetentamilparesdeputa|Chingadamadre|coño|c0ño|coñ0|c0ñ0|afeminado|drog4|cocaína|marihuana|chocho|chocha|cagon|pedorro|agrandado|agrandada|pedorra|sape|nmms|mamar|chigadamadre|hijueputa|chupa|kaka|caca|bobo|boba|loco|loca|chupapolla|estupido|estupida|estupidos|polla|pollas|idiota|maricon|chucha|verga|vrga|naco|zorra|zorro|zorras|zorros|pito|huevon|huevona|huevones|rctmre|mrd|ctm|csm|cp|cepe|sepe|sepesito|cepecito|cepesito|hldv|ptm|baboso|babosa|babosos|babosas|feo|fea|feos|feas|webo|webos|mamawebos|chupame|bolas|qliao|imbecil|embeciles|kbrones|cabron|capullo|carajo|gore|gorre|gorreo|sapo|sapa|mierda|cerdo|cerda|puerco|puerca|perra|perro|joden|jodemos|dumb|fuck|shit|bullshit|cunt|cum|semen|bitch|motherfucker|foker|fucking`; 
+const match = budy.match(new RegExp(toxicWords, "i")); 
+if (match) { 
+const isToxic = match[0]; 
+if (m.isBaileys && m.fromMe) return;
+if (!m.isGroup) return;
+if (isGroupAdmins) return;
 const user = global.db.data.users[m.sender];
 const chat = global.db.data.chats[m.chat];
 const bot = global.db.data.settings[conn.user.jid] || {};
-const isToxic = budy.match; 
 user.warn += 1;
-if (!(user.warn >= 4)) await conn.sendMessage(m.chat, {text: `${lenguaje['AntiToxic'](m, isToxic)}\n⚠️ *${user.warn}/4*\n\n${botname}`, mentions: [m.sender]}, {quoted: m})
+        
+if (!(user.warn >= 4)) {
+await conn.sendMessage(m.chat, {text: `${lenguaje['AntiToxic'](m, isToxic)}\n⚠️ *${user.warn}/4*\n\n${botname}`, mentions: [m.sender]}, { quoted: m });
+}
+        
 if (user.warn >= 4) {
 user.warn = 0;
-await conn.sendMessage(m.chat, {text: `*@${m.sender.split('@')[0]} ${lenguaje['AntiToxic2']()}*`, mentions: [m.sender]}, {quoted: m})
-user.banned = true
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
-return !1;
-}} 
+await conn.sendMessage(m.chat, { text: `*@${m.sender.split('@')[0]} ${lenguaje['AntiToxic2']()}*`, mentions: [m.sender]}, { quoted: m });
+//user.banned = true;
+await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove');
+}
+return;
+}}
 
 //-------[ MODO PUBLIC/PRIVADO ]-----------
 if (!conn.public && !isCreator) {
@@ -410,7 +423,7 @@ let nivelll = `🥳 ${m.pushName || 'Anónimo'} Que pro Acaba de alcanzar un nue
 *• Nivel:* ${before} ⟿ ${user.level}
 *• Rango:* ${user.role}
 *• Bot:* ${wm}`
-await conn.sendMessage("120363365700004535@newsletter", { text: pickRandom(niv, nivelll), contextInfo: {
+await conn.sendMessage(global.ch.ch1, { text: pickRandom(niv, nivelll), contextInfo: {
 externalAdReply: {
 title: "【 🔔 Notificación General 🔔 】",
 body: '¡Haz subido de nivel 🥳!',
@@ -1007,10 +1020,11 @@ if (budy.includes(`NovaBot`) || budy.includes(`novabot`)) {
 m.react(`${pickRandom(['🌟', '👀', '🤑'])}`)}
 if (budy.includes(`Avisos`) || budy.includes(`Atencion`)) {
 m.react(`${pickRandom(['📢', '👀', '⚠️'])}`)}
-if (budy.includes(`Bot`) || budy.includes(`simi`)) {   
-game(m, budy, command, text, pickRandom, pushname, conn, participants, sender, who, body, sendImageAsUrl)}
+/*if (budy.includes(`Bot`) || budy.includes(`simi`)) {   
+game(m, budy, command, text, pickRandom, pushname, conn, participants, sender, who, body, sendImageAsUrl)}*/
 
-if (m.mentionedJid.includes(conn.user.jid) || (m.quoted && m.quoted.sender === conn.user.jid)) {
+//if (m.mentionedJid.includes(conn.user.jid) || (m.quoted && m.quoted.sender === conn.user.jid) || || budy.includes(`bot`) || budy.includes(`alexa`) || budy.includes(`Bot`) || budy.includes(`Simi`) || budy.includes(`simi`) || budy.includes(`Simsimi`)) {
+if (m.mentionedJid.includes(conn.user.jid) || budy.includes(`bot`) || budy.includes(`alexa`) || budy.includes(`Bot`) || budy.includes(`Simi`) || budy.includes(`simi`) || budy.includes(`Simsimi`)) {
 m.isBot = m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') && m.id.length === 20;
 if (m.isBot) return 
 if (m.chat === "120363297379773397@newsletter") return; 
@@ -1027,17 +1041,47 @@ webSearchMode: true // true = resultado con url
 });
 return response.data.result;
 } catch (error) {
-console.error('Error al obtener:', error);
+console.error('Error al obtener:', error)
+}}
+
+async function geminiProApi(q, logic) {
+try {
+const response = await fetch(`https://api.ryzendesu.vip/api/ai/gemini-pro?text=${encodeURIComponent(q)}&prompt=${encodeURIComponent(logic)}`);
+if (!response.ok) throw new Error(`Error en la solicitud: ${response.statusText}`);
+const result = await response.json();
+return result.answer;
+} catch (error) {
+console.error('Error en Gemini Pro:', error);
+return null;
 }}
 
 let query = m.text;
 let username = `${m.pushName}`;
 let syms1 = await fetch('https://raw.githubusercontent.com/elrebelde21/LoliBot-MD/main/src/text-chatgpt.txt').then(v => v.text());
 
-let result = await luminsesi(query, username, syms1)
+let result
 if (result && result.trim().length > 0) {
-await conn.sendTextWithMentions(m.chat, result, m) 
-}}
+result = await geminiProApi(query, syms1);
+}
+        
+if (!result || result.trim().length === 0) {
+result = result.replace('and for API requests replace  https://www.blackbox.ai with https://api.blackbox.ai', '').trim();
+result = result.replace(/Maaf, terjadi kesalahan saat memproses permintaan Anda/g, '').trim();
+result = result.replace(/Generated by BLACKBOX\.AI.*?https:\/\/www\.blackbox\.ai/g, '').trim();
+result = result.replace(/and for API requests replace https:\/\/www\.blackbox\.ai with https:\/\/api\.blackbox\.ai/g, 'api caida').trim();
+result = await luminsesi(query, username, syms1);
+}
+
+if (result && result.trim().length > 0) {
+await m.reply(result);
+//conn.sendTextWithMentions(m.chat, result, m) 
+} else {
+let gpt = await fetch(`https://deliriussapi-oficial.vercel.app/tools/simi?text=${encodeURIComponent(budy)}`);
+let res = await gpt.json();
+await m.reply(res.data.message);
+}
+}
+
 /*if (m.mentionedJid.includes(conn.user.jid)) {
 let noetiqueta = 'https://qu.ax/lqFC.webp'
 let or = ['texto', 'sticker']; 
