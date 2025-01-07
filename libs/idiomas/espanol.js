@@ -659,9 +659,11 @@ text3: `*Responda un sticker para robar`,
 text4: `ingresa algo para convertirlo a sticker :v`, 
 text5: `_*Calma crack estoy haciendo tu texto a sticker 👏*_\n\n_*Esto puede demorar unos minutos....*_` }
 
+//idiomas 
 const idioma = (prefix) => { return `*✳️ Usar:*\n${prefix}idioma 1 (español)\n${prefix}idioma 2 (inglés)\n${prefix}idioma 3 (arabe)\n${prefix}idioma 4 (Indonesia)\n${prefix}idioma 5 (portugues)\n${prefix}idioma 6 (ruso)\n\n*❗Ejemplo:*\n• ${prefix}idioma 1` }
 const idioma2 = () => { return `✅ Idioma cambiado con éxito a ` }
 
+//verificar 
 const smsReg = () => { return `*Ya estas registrado 🧐*` }
 const smsReg1 = (prefix) => { return `*❌ Forma incorrecta*\n\nuse de esta forma\nEjemplo: ${prefix}reg nombre.edad` }
 const smsReg2 = () => { return `El nombre no puede estar vacio` }
