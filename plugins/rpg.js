@@ -41,9 +41,15 @@ user.registered = true
 const sn = createHash('md5').update(m.sender).digest('hex');
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? conn.user.jid : m.sender
 //let ppch = await conn.profilePictureUrl(who, 'image').catch(_ => "") 
+let userNationality = null; 
+try {
 let api = await axios.get(`${apis}/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`)
 let userNationalityData = api.data.result
 let userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido'
+} catch (err) {
+userNationality = null;
+}
+  
 const date = moment.tz('America/Bogota').format('DD/MM/YYYY')
 const time = moment.tz('America/Argentina/Buenos_Aires').format('LT')
 let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
@@ -70,7 +76,7 @@ m.reply(sn)
 await delay(1000)
 m.reply(lenguaje.smsReg8()) 
 await conn.sendMessage("120363365700004535@newsletter", { text: `◉ *Usuarios:* ${m.pushName || 'Anónimo'}
-◉ *País:* ${userNationality}
+${userNationality ? `◉ *País:* ${userNationality}` : ''}
 ◉ *Verificación:* ${user.name}
 ◉ *Edad:* ${age} años
 ◉ *Fecha:* ${date}

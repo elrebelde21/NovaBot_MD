@@ -466,8 +466,28 @@ rows: [{ header: "𝐌𝐄𝐍𝐔 𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐎", title: "",
 { header: "𝐍𝐔𝐄𝐕𝐎𝐒", title: "", id: `.nuevo`, description: `Revisan si hay nueva versión / comando\n` }
 ]})
 
+if (!m.isWABusiness) {
 conn.sendList(m.chat, saludos, menu, `sᴇʟᴇᴄᴄɪᴏɴᴇs ᴀǫᴜɪ`, listSections, {quoted: fkontak})
-
+} else {
+conn.sendMessage(m.chat, { text: menu,  
+contextInfo:{  
+forwardedNewsletterMessageInfo: { 
+newsletterJid: '120363160031023229@newsletter', 
+serverMessageId: '', 
+newsletterName: 'INFINITY-WA 💫' }, 
+forwardingScore: 9999999,  
+isForwarded: true,   
+mentionedJid:[sender, numBot],  
+"externalAdReply": {  
+"showAdAttribution": true,  
+"renderLargerThumbnail": true,  
+"title": wm,   
+"containsAutoReply": true,  
+"mediaType": 1,   
+"thumbnail": imagen2, 
+sourceUrl: `${pickRandom([nna, nn, md, yt])}`
+}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100}) 
+}
 /*conn.sendMessage(m.chat, { text: menu,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
@@ -490,8 +510,10 @@ sourceUrl: `${pickRandom([nna, nn, md, yt])}`
 
 if (command == 'menu1' || command == 'descarga') {
 m.react('🚀') 
+if (!m.isWABusiness) {
 conn.sendButton(m.chat, submenu, descargar, pickRandom([img, img1, img2]), [['𝐀𝐔𝐃𝐈𝐎𝐒', `.menu2`], ['𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃', `.ping`]], null, [['𝐍𝐨𝐯𝐚𝐁𝐨𝐭-𝐌𝐃', `${pickRandom([nna, nn, md, yt])}`]], m)
-/*conn.sendMessage(m.chat, { text: submenu + descargar,  
+} else {
+conn.sendMessage(m.chat, { text: submenu + descargar,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363160031023229@newsletter', 
@@ -508,7 +530,8 @@ mentionedJid:[sender],
 "mediaType": 1,   
 "thumbnail": imagen2, 
 sourceUrl: `${pickRandom([nna, nn, md, yt])}`
-}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})*/
+}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}
 }
 
 if (command == 'menu2' || command == 'audio') {
@@ -518,8 +541,10 @@ conn.sendMessage(m.chat, { text: menu2}, { quoted: fkontak, ephemeralExpiration:
 
 if (command == 'menu3' || command == 'menugrupos') {
 m.react('🔰') 
+if (!m.isWABusiness) {
 conn.sendButton(m.chat, submenu, grupos, pickRandom([img, img1, img2]), [['𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐑', `.descarga`], ['𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃', `.ping`]], null, [['𝐍𝐨𝐯𝐚𝐁𝐨𝐭-𝐌𝐃', `${pickRandom([nna, nn, md, yt])}`]], m)
-/*conn.sendMessage(m.chat, { text: submenu + grupos,  
+} else {
+conn.sendMessage(m.chat, { text: submenu + grupos,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363160031023229@newsletter', 
@@ -536,13 +561,16 @@ mentionedJid:[sender],
 "mediaType": 1,   
 "thumbnail": imagen2, 
 sourceUrl: `${pickRandom([nna, nn, md, yt])}`
-}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})*/
+}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}
 }
 
 if (command == 'menu4' || command == 'menubuscadores') {
 m.react('🪄') 
+if (!m.isWABusiness) {
 conn.sendButton(m.chat, submenu, buscadores, pickRandom([img, img1, img2]), [['🎮 𝐉𝐔𝐄𝐆𝐎𝐒', `.menu5`], ['✅ 𝐒𝐓𝐀𝐓𝐔𝐒', `.status`]], null, [['𝐍𝐨𝐯𝐚𝐁𝐨𝐭-𝐌𝐃', `${pickRandom([nna, nn, md, yt])}`]], m)
-/*conn.sendMessage(m.chat, { text: submenu + buscadores,  
+} else {
+conn.sendMessage(m.chat, { text: submenu + buscadores,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363160031023229@newsletter', 
@@ -559,13 +587,16 @@ mentionedJid:[sender],
 "mediaType": 1,   
 "thumbnail": imagen2, 
 sourceUrl: `${pickRandom([nna, nn, md, yt])}`
-}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})*/
+}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}
 }
 
 if (command == 'menu5' || command == 'menujuegos') {
 m.react('👾') 
+if (!m.isWABusiness) {
 conn.sendButton(m.chat, submenu, juegos, pickRandom([img, img1, img2]), [['𝐌𝐄𝐍𝐔 𝐄𝐅𝐄𝐂𝐓𝐎', `.menu6`], ['𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃', `.ping`]], null, [['𝐍𝐨𝐯𝐚𝐁𝐨𝐭-𝐌𝐃', `${pickRandom([nna, nn, md, yt])}`]], m)
-/*conn.sendMessage(m.chat, { text: submenu + juegos,  
+} else {
+conn.sendMessage(m.chat, { text: submenu + juegos,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363160031023229@newsletter', 
@@ -582,13 +613,16 @@ mentionedJid:[sender],
 "mediaType": 1,   
 "thumbnail": imagen2, 
 sourceUrl: `${pickRandom([nna, nn, md, yt])}`
-}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})*/
+}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}
 }
 
 if (command == 'menu6' || command == 'menuefecto') {
 m.react('🎤') 
+if (!m.isWABusiness) {
 conn.sendButton(m.chat, submenu, efecto, pickRandom([img, img1, img2]), [['𝐂𝐎𝐍𝐕𝐄𝐑𝐓𝐈𝐃𝐎𝐑𝐄𝐒', `.menu7`], ['𝐑𝐄𝐆𝐋𝐀𝐒', `.reglas`]], null, [['𝐍𝐨𝐯𝐚𝐁𝐨𝐭-𝐌𝐃', `${pickRandom([nna, nn, md, yt])}`]], m)
-/*conn.sendMessage(m.chat, { text: submenu + efecto,  
+} else {
+conn.sendMessage(m.chat, { text: submenu + efecto,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363160031023229@newsletter', 
@@ -605,13 +639,16 @@ mentionedJid:[sender],
 "mediaType": 1,   
 "thumbnail": imagen2, 
 sourceUrl: `${pickRandom([nna, nn, md, yt])}`
-}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})*/
+}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}
 }
 
 if (command == 'menu7' || command == 'menuconvertidores') {
 m.react('🧧') 
+if (!m.isWABusiness) {
 conn.sendButton(m.chat, submenu, efecto, pickRandom([img, img1, img2]), [['𝐂𝐎𝐍𝐕𝐄𝐑𝐓𝐈𝐃𝐎𝐑𝐄𝐒', `.menu7`], ['𝐑𝐄𝐆𝐋𝐀𝐒', `.reglas`]], null, [['𝐍𝐨𝐯𝐚𝐁𝐨𝐭-𝐌𝐃', `${pickRandom([nna, nn, md, yt])}`]], m)
-/*conn.sendMessage(m.chat, { text: submenu + convertidores,  
+} else {
+conn.sendMessage(m.chat, { text: submenu + convertidores,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363160031023229@newsletter', 
@@ -628,14 +665,16 @@ mentionedJid:[sender],
 "mediaType": 1,   
 "thumbnail": imagen2, 
 sourceUrl: `${pickRandom([nna, nn, md, yt])}`
-}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})*/
-
+}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}
 }
 
 if (command == 'menu18' || command == 'Menuhony') {
-m.react('🥵') 
+m.react('🥵')
+if (!m.isWABusiness) {
 conn.sendButton(m.chat, submenu, menu18, pickRandom([img, img1, img2]), [['𝐌𝐄𝐍𝐔-𝐑𝐀𝐍𝐃𝐎𝐖', `.menu8`], ['𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃', `.ping`]], null, [['𝐍𝐨𝐯𝐚𝐁𝐨𝐭-𝐌𝐃', `${pickRandom([nna, nn, md, yt])}`]], m)
-/*conn.sendMessage(m.chat, { text: submenu + menu18,  
+} else {
+conn.sendMessage(m.chat, { text: submenu + menu18,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363160031023229@newsletter', 
@@ -652,13 +691,16 @@ mentionedJid:[sender],
 "mediaType": 1,   
 "thumbnail": imagen2, 
 sourceUrl: `${pickRandom([nna, nn, md, yt])}`
-}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})*/
+}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}
 }
 
 if (command == 'menurandow' || command == 'menu8') {
 m.react('⛩️') 
+if (!m.isWABusiness) {
 conn.sendButton(m.chat, submenu, menurandow, pickRandom([img, img1, img2]), [['𝐌𝐄𝐍𝐔-𝐑𝐏𝐆', `.menu9`], ['𝐋𝐎𝐆𝐎𝐒', `.logos`]], null, [['𝐍𝐨𝐯𝐚𝐁𝐨𝐭-𝐌𝐃', `${pickRandom([nna, nn, md, yt])}`]], m)
-/*conn.sendMessage(m.chat, { text: submenu + menurandow,  
+} else {
+conn.sendMessage(m.chat, { text: submenu + menurandow,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363160031023229@newsletter', 
@@ -675,13 +717,16 @@ mentionedJid:[sender],
 "mediaType": 1,   
 "thumbnail": imagen2, 
 sourceUrl: `${pickRandom([nna, nn, md, yt])}`
-}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})*/
+}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}
 }
 
 if (command == 'menuRPG' || command == 'menu9') {
 m.react('⚒️') 
+if (!m.isWABusiness) {
 conn.sendButton(m.chat, submenu, menuRPG, pickRandom([img, img1, img2]), [['𝐌𝐄𝐍𝐔-𝐒𝐓𝐈𝐂𝐊𝐄𝐑', `.menu10`], ['𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃', `.ping`]], null, [['𝐍𝐨𝐯𝐚𝐁𝐨𝐭-𝐌𝐃', `${pickRandom([nna, nn, md, yt])}`]], m)
-/*conn.sendMessage(m.chat, { text: submenu + menuRPG,  
+} else {
+conn.sendMessage(m.chat, { text: submenu + menuRPG,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363160031023229@newsletter', 
@@ -698,13 +743,16 @@ mentionedJid:[sender],
 "mediaType": 1,   
 "thumbnail": imagen2, 
 sourceUrl: `${pickRandom([nna, nn, md, yt])}`
-}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})*/
+}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}
 }
 
 if (command == 'menuSticker' || command == 'menu10') {
 m.react('🎈') 
+if (!m.isWABusiness) {
 conn.sendButton(m.chat, submenu, menuSticker, pickRandom([img, img1, img2]), [['𝐌𝐄𝐍𝐔-𝐎𝐖𝐍𝐄𝐑', `.menu11`], ['𝐄𝐒𝐓𝐀𝐃𝐎', `.estado`]], null, [['𝐍𝐨𝐯𝐚𝐁𝐨𝐭-𝐌𝐃', `${pickRandom([nna, nn, md, yt])}`]], m)
-/*conn.sendMessage(m.chat, { text: submenu + menuSticker,  
+} else {
+conn.sendMessage(m.chat, { text: submenu + menuSticker,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363160031023229@newsletter', 
@@ -721,13 +769,16 @@ mentionedJid:[sender],
 "mediaType": 1,   
 "thumbnail": imagen2, 
 sourceUrl: `${pickRandom([nna, nn, md, yt])}`
-}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})*/
+}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}
 }
 
 if (command == 'menuOwner' || command == 'menu11') {
-m.react('👑') 
+m.react('👑')
+if (!m.isWABusiness) {
 conn.sendButton(m.chat, submenu, menuOwner, pickRandom([img, img1, img2]), [['𝐌𝐄𝐍𝐔 𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐎', `.allmenu`], ['𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃', `.ping`]], null, [['𝐍𝐨𝐯𝐚𝐁𝐨𝐭-𝐌𝐃', `${pickRandom([nna, nn, md, yt])}`]], m)
-/*conn.sendMessage(m.chat, { text: submenu + menuOwner,  
+} else {
+conn.sendMessage(m.chat, { text: submenu + menuOwner,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363160031023229@newsletter', 
@@ -744,7 +795,8 @@ mentionedJid:[sender],
 "mediaType": 1,   
 "thumbnail": imagen2, 
 sourceUrl: `${pickRandom([nna, nn, md, yt])}`
-}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})*/
+}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}
 }
 
 if (command == 'allmenu' || command == 'menucompleto') {
@@ -1141,8 +1193,10 @@ ${lenguaje.menu.text12}
 ├❥ᰰຼ ❏ => 
 *╰┄̸࣭࣭࣭࣭࣭ٜ۫┄࣭࣭࣭۫┄̸࣭۫┄̸࣭࣭࣭࣭࣭ٜ۫┄࣭࣭࣭۫┄̸࣭۫┄̸࣭࣭࣭࣭࣭ٜ۫┄̸࣭࣭࣭࣭࣭ٜ۫┄࣭۫*`
 
+if (!m.isWABusiness) {
 conn.sendButton(m.chat, menu, botname, img, [['𝐈𝐍𝐅𝐎', `.status`], ['𝐆𝐑𝐔𝐏𝐎𝐒', `.grupos`]], null, [['𝐍𝐨𝐯𝐚𝐁𝐨𝐭-𝐌𝐃', `${pickRandom([nna, nn, md, yt])}`]], m)
-/*conn.sendMessage(m.chat, { text: menu,  
+} else {
+conn.sendMessage(m.chat, { text: menu,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363160031023229@newsletter', 
@@ -1159,7 +1213,8 @@ mentionedJid:[sender, numBot],
 "mediaType": 1,   
 "thumbnail": imagen2, 
 sourceUrl: `${pickRandom([nna, nn, md, yt])}`
-}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100}) */
+}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100}) 
+}
 }
 
 if (command == 'nuevo' || command == 'extreno') {
