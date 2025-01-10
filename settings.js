@@ -51,7 +51,7 @@ global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())];
 global.lolkeysapi = ['GataDios']; // ['BrunoSobrino_2'] 
 global.itsrose = ['4b146102c4d500809da9d1ff'];
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({...query, ...(apikeyqueryname ? {[apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name]} : {})})) : '');
-global.apis = 'https://deliriussapi-oficial.vercel.app'
+global.apis = 'https://delirius-apiofc.vercel.app'
 
 global.APIs = {
 //ApiEmpire: 'https://',
@@ -106,7 +106,7 @@ global.noperfil = fs.readFileSync('./media/sinfoto.jpg')
 //---------[ ENLACES ]---------
 global.md = 'https://github.com/elrebelde21/NovaBot_MD'
 global.yt = 'https://www.youtube.com/@elrebelde.21'
-global.tiktok = 'tiktok.com/@elrebelde21'
+global.tiktok = 'https://www.tiktok.com/@elrebelde.21'
 global.fb = 'https://www.facebook.com/elrebelde21'
 global.faceb = 'https://facebook.com/groups/872989990425789/'
 global.paypal = 'https://paypal.me/OficialGD' 
