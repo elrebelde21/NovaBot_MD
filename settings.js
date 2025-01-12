@@ -115,6 +115,7 @@ global.paypal = 'https://paypal.me/OficialGD'
 global.host = 'https://chat.whatsapp.com/KGPhTIfgOzZCMNqoc3R7OW' //Infinity-host
 global.nna = 'https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A' //Update 
 global.nna2 = 'https://whatsapp.com/channel/0029Vau57ykEwEk5CgosvU3v' //lolibot
+global.nnaa = 'https://whatsapp.com/channel/0029Vae6j714Y9loutP3Au29' //LoliBot - Test
 global.test = 'https://whatsapp.com/channel/0029Vae6j714Y9loutP3Au29' //test
 global.nn = 'https://chat.whatsapp.com/HNDVUxHphPzG3cJHIwCaX5' //LoliBot
 global.nn2 = 'https://chat.whatsapp.com/H4hxytyGvucIF1k0UAR7es' //Loli & Nova
