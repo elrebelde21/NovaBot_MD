@@ -55,7 +55,7 @@ const time = moment.tz('America/Argentina/Buenos_Aires').format('LT')
 let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
 global.db.data.users[m.sender].limit += 2
 global.db.data.users[m.sender].exp += 200
-conn.sendMessage(m.chat, { text: lenguaje.smsReg7(name, user, age, time, date, sender, sn, prefix, rtotalreg),
+conn.sendMessage(m.chat, { text: lenguaje.smsReg7(name, user, age, time, date, sender, sn, prefix, rtotalreg) + `\n\n> *Mira tú registro en este canal*\n${nnaa}`,
 contextInfo:{
 mentionedJid:[name],
 forwardingScore: 9999999,
@@ -82,10 +82,7 @@ ${userNationality ? `◉ *País:* ${userNationality}` : ''}
 ◉ *Fecha:* ${date}
 ◉ *Bot:* ${wm}
 ◉ *Número de serie:*
-⤷ ${sn}
-
-> *Mira tú registro en este canal*
-${nnaa}`, contextInfo: {
+⤷ ${sn}`, contextInfo: {
 externalAdReply: {
 title: "『 𝙉𝙊𝙏𝙄𝙁𝙄𝘾𝘼𝘾𝙄𝙊́𝙉 📢 』",
 body: "Nuevo usuario registrado 🥳",
