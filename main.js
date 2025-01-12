@@ -414,7 +414,7 @@ let niv = `*${m.pushName || 'Anónimo'}* Obtiene un nuevo nivel 🥳
 *• Nivel anterior:* ${before} 
 *• Nivel actúal :* ${user.level}
 *• Rol:* ${user.role}
-*• Bot:* ${wm}`
+*• Bot:* ${botname}`
 let nivell = `*${m.pushName || 'Anónimo'} Haz subido un nuevo nivel 🥳*
 
 > _*• NIVEL:* ${before} ⟿ ${user.level}_`
@@ -422,7 +422,7 @@ let nivelll = `🥳 ${m.pushName || 'Anónimo'} Que pro Acaba de alcanzar un nue
 
 *• Nivel:* ${before} ⟿ ${user.level}
 *• Rango:* ${user.role}
-*• Bot:* ${wm}`
+*• Bot:* ${botname}`
 await conn.sendMessage(global.ch.ch1, { text: pickRandom(niv, nivelll), contextInfo: {
 externalAdReply: {
 title: "【 🔔 Notificación General 🔔 】",
@@ -644,13 +644,6 @@ messageTimestamp  : m.messageTimestamp || 754785898978
 }
 return conn.ev.emit('messages.upsert', { messages : [ emit ] ,  type : 'notify'})
 }}}
-
-	    //características totales
-const mariafeature = () =>{
-            var mytext = fs.readFileSync("./main.js").toString()
-  var numUpper = (mytext.match(/case '/g) || []).length
-            return numUpper
-}
 
 //ARRANCA LA DIVERSIÓN   
 switch (prefix && command) {  
