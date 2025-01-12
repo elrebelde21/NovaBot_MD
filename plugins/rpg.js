@@ -82,7 +82,10 @@ ${userNationality ? `◉ *País:* ${userNationality}` : ''}
 ◉ *Fecha:* ${date}
 ◉ *Bot:* ${wm}
 ◉ *Número de serie:*
-⤷ ${sn}`, contextInfo: {
+⤷ ${sn}
+
+> *Mira tú registro en este canal*
+${nnaa}`, contextInfo: {
 externalAdReply: {
 title: "『 𝙉𝙊𝙏𝙄𝙁𝙄𝘾𝘼𝘾𝙄𝙊́𝙉 📢 』",
 body: "Nuevo usuario registrado 🥳",
