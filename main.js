@@ -87,8 +87,6 @@ const botnm = conn.user.id.split(":")[0] + "@s.whatsapp.net"
 const _isBot = conn.user.jid
 m.isBot = m.id.startsWith('BAE5') && m.id.length === 16 || m.id.startsWith('3EB0') && m.id.length === 12 || m.id.startsWith('3EB0') && (m.id.length === 20 || m.id.length === 22) || m.id.startsWith('B24E') && m.id.length === 20;
 if (m.isBot) return 
-if (m.chat === "120363297379773397@newsletter") return; 
-if (m.chat === "120363355261011910@newsletter") return;
 
 /**
  * Returns early if ID starts with 'NJX-' due to Baileys' different generateId system.
@@ -348,6 +346,8 @@ const toxicWords = `g0re|g0r3|g.o.r.e|sap0|sap4|malparido|malparida|malparidos|m
 const match = budy.match(new RegExp(toxicWords, "i")); 
 if (match) { 
 const isToxic = match[0]; 
+if (m.chat === "120363297379773397@newsletter") return; 
+if (m.chat === "120363355261011910@newsletter") return;
 if (m.isBaileys && m.fromMe) return;
 if (!m.isGroup) return;
 if (isGroupAdmins) return;
@@ -437,10 +437,12 @@ renderLargerThumbnail: false
  
 //----------------[ CHATBOT/AUTOMATICO ]-------------------
 if (global.db.data.chats[m.chat].simi) {
+if (m.chat === "120363297379773397@newsletter") return; 
+if (m.chat === "120363355261011910@newsletter") return;
 let textodem = budy
 try {
 await conn.sendPresenceUpdate('composing', m.chat)
-let gpt = await fetch(`https://delirius-api-oficial.vercel.app/api/simi?text=${encodeURIComponent(textodem)}`)
+let gpt = await fetch(`${apis}/api/simi?text=${encodeURIComponent(textodem)}`)
 let res = await gpt.json()
 await delay(1 * 1000) 
 await m.reply(res.data.message)
@@ -498,6 +500,8 @@ global.lenguaje = es
  
 //---------------------[ ANTISPAM ]------------------------
 if (global.db.data.chats[m.chat].antispam && prefix) {
+if (m.chat === "120363297379773397@newsletter") return; 
+if (m.chat === "120363355261011910@newsletter") return;
 let user = global.db.data.users[m.sender]
 let str = [nna, md, yt, tiktok, fb] 
 let info = str[Math.floor(Math.random() * str.length)]
@@ -995,6 +999,8 @@ function isNumber(x) {return !isNaN(x)}
 
 //-------------------[ AUDIO/TEXTOS ]----------------------
 default:   
+//if (m.chat === "120363297379773397@newsletter") return; 
+//if (m.chat === "120363355261011910@newsletter") return;
 if (budy.includes(`Todo bien`)) {
 conn.sendPresenceUpdate('composing', m.chat)
 await m.reply(`${pickRandom(['Si amigo todo bien, vite', 'Todo bien capo y tu 😎'])}`)} 
@@ -1076,7 +1082,7 @@ if (result && result.trim().length > 0) {
 await m.reply(result);
 //conn.sendTextWithMentions(m.chat, result, m) 
 } else {
-let gpt = await fetch(`https://deliriussapi-oficial.vercel.app/tools/simi?text=${encodeURIComponent(budy)}`);
+let gpt = await fetch(`${apis}/tools/simi?text=${encodeURIComponent(budy)}`);
 let res = await gpt.json();
 await m.reply(res.data.message);
 }
@@ -1336,4 +1342,3 @@ console.log(chalk.redBright(`Update ${__filename}`))
 delete require.cache[file]
 require(file)
 })
-
