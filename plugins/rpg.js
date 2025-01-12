@@ -80,7 +80,7 @@ ${userNationality ? `◉ *País:* ${userNationality}` : ''}
 ◉ *Verificación:* ${user.name}
 ◉ *Edad:* ${age} años
 ◉ *Fecha:* ${date}
-◉ *Bot:* ${wm}
+◉ *Bot:* ${botname}
 ◉ *Número de serie:*
 ⤷ ${sn}`, contextInfo: {
 externalAdReply: {
