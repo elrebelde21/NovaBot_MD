@@ -75,7 +75,7 @@ await delay(1000)
 m.reply(sn) 
 await delay(1000)
 m.reply(lenguaje.smsReg8()) 
-await conn.sendMessage("120363365700004535@newsletter", { text: `◉ *Usuarios:* ${m.pushName || 'Anónimo'}
+await conn.sendMessage(global.ch.ch1, { text: `◉ *Usuarios:* ${m.pushName || 'Anónimo'}
 ${userNationality ? `◉ *País:* ${userNationality}` : ''}
 ◉ *Verificación:* ${user.name}
 ◉ *Edad:* ${age} años
