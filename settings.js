@@ -6,6 +6,7 @@ const { en, es, ar, id, pt, rs} = require('./libs/idiomas/total-idiomas.js')
 //---------[ PROPIETARIO/OWNER ]---------
 global.owner = [
 ["5214774444444", "Owner", true], 
+["5217411126626", "𝕮𝖍𝖎𝖓𝖆 𝕸𝖎𝖙𝖟𝖚𝖐𝖎 - 𝕯𝖚𝖊𝖓̃𝖆 💋", true],
 ["593968585383"], 
 ["5217773342977"], 
 ["573008499604"], 
