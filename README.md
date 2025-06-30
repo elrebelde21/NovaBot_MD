@@ -133,9 +133,22 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 
 ------------------ 
 
-## `𝙴𝙳𝙸𝚃𝙾𝚁 𝚈 𝙿𝚁𝙾𝙿𝙸𝙴𝚃𝙰𝚁𝙸𝙾 𝙳𝙴𝙻 𝙱𝙾𝚃`
+## `👨‍💻 𝙴𝙳𝙸𝚃𝙾𝚁 𝚈 𝙿𝚁𝙾𝙿𝙸𝙴𝚃𝙰𝚁𝙸𝙾 𝙳𝙴𝙻 𝙱𝙾𝚃`
 
-<a href="https://github.com/elrebelde21"><img src="https://github.com/elrebelde21.png" width="250" height="250" alt="elrebelde21"/></a>
+<p align="center">
+  <a href="https://github.com/elrebelde21">
+    <img src="https://github.com/elrebelde21.png" width="150" height="150" alt="elrebelde21"/><br>
+    <b>@elrebelde21</b>
+  </a>
+</p>
+
+<p align="center">
+  <b>👑 Dueña/Propietaria:</b><br>
+  <a href="https://www.instagram.com/itschinita_official">
+    <img src="https://files.catbox.moe/4rbw47.jpg" width="130" height="130" style="border-radius: 50%;" alt="china"/><br>
+    <b>@itschinita_official</b>
+  </a>
+</p>
 
 ## `👑 𝙲𝙾𝙻𝙰𝙱𝙾𝚁𝙰𝙳𝙾𝚁𝙴𝚂 👑`
 
